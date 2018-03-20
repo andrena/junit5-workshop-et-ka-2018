@@ -27,7 +27,7 @@ sourceCompatibility = 1.8
 junitPlatform {
     filters {
         engines {
-            // include 'junit-jupiter', 'junit-vintage'
+            include 'junit-jupiter', 'junit-vintage'
             // exclude 'custom-engine'
         }
         tags {
@@ -50,7 +50,7 @@ dependencies {
 
     testImplementation("org.junit.platform:junit-platform-runner:${junitPlatformVersion}")
 
-    //testRuntime("org.junit.vintage:junit-vintage-engine:${junitVintageVersion}")
+    testRuntime("org.junit.vintage:junit-vintage-engine:${junitVintageVersion}")
 
 }
 
