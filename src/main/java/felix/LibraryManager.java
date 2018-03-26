@@ -22,7 +22,7 @@ public class LibraryManager {
 	public boolean rentBook(Book book) {
 		if (books.containsKey(book.getImei())) {
 			if (books.get(book.getImei()).getState() == BookState.AVAILABLE) {
-				books.get(book.getImei()).setState(BookState.LENT);
+				books.get(book.getImei()).setState(BookState.RENT);
 				return true;
 			}
 			return false;

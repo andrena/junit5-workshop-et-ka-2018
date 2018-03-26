@@ -1,6 +1,8 @@
 package felix;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -58,7 +60,7 @@ class LibraryManagerTest {
 			assertTrue(underTest.rentBook(javaBook));
 
 			Book rentBook = underTest.getBook(javaBook.getImei());
-			assertEquals(BookState.LENT, rentBook.getState());
+			assertEquals(BookState.RENT, rentBook.getState());
 		}
 		
 		@Test
@@ -85,6 +87,5 @@ class LibraryManagerTest {
 		}
 		
 	}
-
 	
 }
