@@ -42,6 +42,7 @@ junitPlatform {
 }
 
 dependencies {
+	testCompile "org.assertj:assertj-core:3.8.0"
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
     testImplementation("org.junit.jupiter:junit-jupiter-params:${junitJupiterVersion}")
     testImplementation("org.junit.jupiter:junit-jupiter-migrationsupport:${junitJupiterVersion}")
