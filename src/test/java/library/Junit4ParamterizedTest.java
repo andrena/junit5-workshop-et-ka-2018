@@ -1,4 +1,4 @@
-package felix;
+package library;
 
 import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,6 +10,10 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
+
+import library.Book;
+import library.Customer;
+import library.RentCalculator;
 
 @RunWith(Parameterized.class)
 public class Junit4ParamterizedTest {

@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.Test;
 
-import felix.Book;
+import library.Book;
 
 public abstract class BookPropertiesTest {
 

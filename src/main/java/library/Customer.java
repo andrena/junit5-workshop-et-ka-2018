@@ -1,4 +1,4 @@
-package felix;
+package library;
 
 public enum Customer {
 	STUDENT(2.2), PENSIONER(2.2), REGULAR(2.5);

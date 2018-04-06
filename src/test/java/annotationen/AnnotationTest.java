@@ -10,10 +10,10 @@ import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 
-import felix.Book;
-import felix.Customer;
-import felix.LibraryManager;
-import felix.RentCalculator;
+import library.Book;
+import library.Customer;
+import library.LibraryManager;
+import library.RentCalculator;
 
 public class AnnotationTest {
 

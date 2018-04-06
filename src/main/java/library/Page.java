@@ -1,4 +1,4 @@
-package felix;
+package library;
 
 public class Page {
 

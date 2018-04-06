@@ -3,7 +3,7 @@ package common;
 import java.util.ArrayList;
 import java.util.List;
 
-import felix.Page;
+import library.Page;
 
 public class PageFactory {
 

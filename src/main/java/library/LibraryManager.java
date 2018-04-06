@@ -1,4 +1,4 @@
-package felix;
+package library;
 
 import java.util.HashMap;
 import java.util.Map;

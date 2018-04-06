@@ -1,4 +1,4 @@
-package felix;
+package library;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -8,6 +8,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+
+import library.Book;
+import library.BookState;
+import library.LibraryManager;
 
 @DisplayName("New Library")
 class LibraryManagerTest {

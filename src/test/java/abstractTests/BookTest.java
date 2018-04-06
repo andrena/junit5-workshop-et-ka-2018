@@ -2,7 +2,7 @@ package abstractTests;
 
 import common.BookFactory;
 import common.PageFactory;
-import felix.Book;
+import library.Book;
 
 public class BookTest extends BookPropertiesTest {
 
