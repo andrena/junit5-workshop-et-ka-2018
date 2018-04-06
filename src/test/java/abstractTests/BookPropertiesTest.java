@@ -1,9 +1,11 @@
-package felix;
+package abstractTests;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.Test;
+
+import felix.Book;
 
 public abstract class BookPropertiesTest {
 

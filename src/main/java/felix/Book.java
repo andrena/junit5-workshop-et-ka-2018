@@ -1,6 +1,5 @@
 package felix;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Book {
@@ -14,7 +13,6 @@ public class Book {
 		this.imei = imei;
 		this.title = title;
 		state = BookState.AVAILABLE;
-		pages = new ArrayList<Page>();
 	}
 
 	public Book(String imei, String title, List<Page> pages) {
@@ -42,6 +40,10 @@ public class Book {
 
 	public List<Page> getPages() {
 		return pages;
+	}
+
+	public void setPages(List<Page> pages) {
+		this.pages = pages;
 	}
 
 }
