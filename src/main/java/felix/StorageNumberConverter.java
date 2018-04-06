@@ -4,7 +4,7 @@ import java.util.TreeMap;
 
 public class StorageNumberConverter {
 
-	private final static TreeMap<Integer, String> map = new TreeMap<Integer, String>();
+	private final TreeMap<Integer, String> map = new TreeMap<Integer, String>();
 
 	public StorageNumberConverter() {
 		map.put(1000, "M");

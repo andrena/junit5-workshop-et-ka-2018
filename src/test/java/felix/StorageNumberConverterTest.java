@@ -8,7 +8,7 @@ public class StorageNumberConverterTest {
 	public void hundretToRomain() {
 		StorageNumberConverter converter = new StorageNumberConverter();
 
-		for (int index = 0; index <= 1000; index++) {
+		for (int index = 1; index <= 100; index++) {
 			System.out.println(converter.toRoman(index));
 		}
 	}
