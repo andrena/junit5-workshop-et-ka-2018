@@ -8,7 +8,7 @@ public class BookTest extends BookPropertiesTest {
 
 	@Override
 	public Book createBook() {
-		Book book = BookFactory.getBook(42);
+		Book book = BookFactory.getBook();
 		book.setPages(PageFactory.createPages(242));
 		return book;
 	}

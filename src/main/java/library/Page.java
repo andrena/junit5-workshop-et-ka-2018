@@ -2,8 +2,7 @@ package library;
 
 public class Page {
 
-	public Page(Long pageNumber) {
-
+	public Page(int pageNumber) {
 	}
 
 }

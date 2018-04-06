@@ -1,23 +1,15 @@
 package common;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import library.Book;
 
 public class BookFactory {
 
-	private static Map<Long, Book> books = getRegisterdBooks();
-
-	public static Book getBook(long id) {
-		return books.get(id);
-
+	public static Book getBook() {
+		return new Book("0-330-25864-8", "The Hitchhiker's Guide to the Galaxy");
 	}
 
-	private static Map<Long, Book> getRegisterdBooks() {
-		Map<Long, Book> books = new HashMap<>();
-		books.put(42L, new Book("0-330-25864-8", "The Hitchhiker's Guide to the Galaxy"));
-		return books;
+	public static Book getSoftwareDevelopmentBook() {
+		return new Book("978-0132350884", "Clean Code", PageFactory.createPages(462));
 	}
 
 }
