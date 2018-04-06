@@ -19,7 +19,7 @@ TODO
 	* NestedTests vs HierarchicalRunner (Felix)
 	* TemporaryFolderRule (Dirk)
 	* Abstract Tests nach Contracts (Johannes)
-	* Hamcrest Matchers vs AssertJ 
+	* Hamcrest Matchers vs AssertJ (Claudia)
 		* Showcase einfache Migration
 			* manuell einbinden von hamcrest
 			* AssertJ funktioniert direkt
@@ -35,9 +35,9 @@ TODO
 		* Repeated (vs Rule)
 		* Disabled (vs Ignore)
 	* LifeCycle Annotationen (Before, After,...) (Claudia)
-	* AssertTimeout und Futures
-	* Exception Testing assertThrows vs ExpectedException
-	* Eigene Extension
+	* AssertTimeout und Futures (Felix)
+	* Exception Testing assertThrows vs ExpectedException (Johannes)
+	* Eigene Extension (Dirk)
 		* ?
 	* Parametrized Tests (Felix)
 	*
