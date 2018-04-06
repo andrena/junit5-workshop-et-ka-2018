@@ -1,15 +1,27 @@
 package felix;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Book {
 
 	private final String imei;
 	private final String title;
 	private BookState state;
-	
+	private List<Page> pages;
+
 	public Book(String imei, String title) {
 		this.imei = imei;
 		this.title = title;
 		state = BookState.AVAILABLE;
+		pages = new ArrayList<Page>();
+	}
+
+	public Book(String imei, String title, List<Page> pages) {
+		super();
+		this.imei = imei;
+		this.title = title;
+		this.pages = pages;
 	}
 
 	public String getImei() {
@@ -27,5 +39,9 @@ public class Book {
 	public void setState(BookState state) {
 		this.state = state;
 	}
-	
+
+	public List<Page> getPages() {
+		return pages;
+	}
+
 }
