@@ -34,9 +34,9 @@ TODO
 		* Displayname
 		* Repeated (vs Rule)
 		* Disabled (vs Ignore)
+	* LifeCycle Annotationen (Before, After,...) (Claudia)
 	* AssertTimeout und Futures
 	* Exception Testing assertThrows vs ExpectedException
-	* LifeCycle Annotationen (Before, After,...)
 	* Eigene Extension
 		* ?
 	* Parametrized Tests (Felix)
