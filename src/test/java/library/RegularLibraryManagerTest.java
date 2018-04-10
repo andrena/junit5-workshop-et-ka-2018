@@ -49,7 +49,7 @@ public class RegularLibraryManagerTest {
 		fillLibraryWithBooks();
 		assertTrue(underTest.rentBook(java));
 
-		Book rentBook = underTest.getBook(java.getImei());
+		Book rentBook = underTest.getBook(java.getISBN());
 		assertEquals(BookState.RENT, rentBook.getState());
 	}
 

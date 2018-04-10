@@ -63,7 +63,7 @@ class LibraryManagerTest {
 		void canRentBook() {
 			assertTrue(underTest.rentBook(javaBook));
 
-			Book rentBook = underTest.getBook(javaBook.getImei());
+			Book rentBook = underTest.getBook(javaBook.getISBN());
 			assertEquals(BookState.RENT, rentBook.getState());
 		}
 		

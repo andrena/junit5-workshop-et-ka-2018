@@ -4,26 +4,31 @@ import java.util.List;
 
 public class Book {
 
-	private final String imei;
+	private final String ISBN;
 	private final String title;
 	private BookState state;
 	private List<Page> pages;
 
 	public Book(String imei, String title) {
-		this.imei = imei;
+		this.ISBN = imei;
 		this.title = title;
 		state = BookState.AVAILABLE;
 	}
 
-	public Book(String imei, String title, List<Page> pages) {
+	public Book(String ISBN, String title, List<Page> pages) {
 		super();
-		this.imei = imei;
+		try {
+			new ISBNValidator().validate(ISBN);
+		} catch (InvalidISBNException e) {
+			// Inform user
+		}
+		this.ISBN = ISBN;
 		this.title = title;
 		this.pages = pages;
 	}
 
-	public String getImei() {
-		return imei;
+	public String getISBN() {
+		return ISBN;
 	}
 
 	public String getTitle() {

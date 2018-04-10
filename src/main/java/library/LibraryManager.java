@@ -20,9 +20,9 @@ public class LibraryManager {
 	}
 
 	public boolean rentBook(Book book) {
-		if (books.containsKey(book.getImei())) {
-			if (books.get(book.getImei()).getState() == BookState.AVAILABLE) {
-				books.get(book.getImei()).setState(BookState.RENT);
+		if (books.containsKey(book.getISBN())) {
+			if (books.get(book.getISBN()).getState() == BookState.AVAILABLE) {
+				books.get(book.getISBN()).setState(BookState.RENT);
 				return true;
 			}
 			return false;
@@ -39,7 +39,7 @@ public class LibraryManager {
 	}
 
 	public void addBook(Book book) {
-		books.put(book.getImei(), book);
+		books.put(book.getISBN(), book);
 	}
 
 	public long availableBookCount() {
