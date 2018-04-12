@@ -17,11 +17,6 @@ public class Book {
 
 	public Book(String ISBN, String title, List<Page> pages) {
 		super();
-		try {
-			new ISBNValidator().validate(ISBN);
-		} catch (InvalidISBNException e) {
-			// Inform user
-		}
 		this.ISBN = ISBN;
 		this.title = title;
 		this.pages = pages;

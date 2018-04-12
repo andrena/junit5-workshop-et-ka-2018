@@ -1,4 +1,4 @@
-package library.activies.reading;
+package abstractTests;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import common.BookFactory;
 import library.Book;
+import library.activies.reading.Progression;
 
 public abstract class ReadingMethodTest {
 

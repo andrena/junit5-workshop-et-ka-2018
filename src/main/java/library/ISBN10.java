@@ -12,11 +12,11 @@ public class ISBN10 implements ISBNType {
 	@Override
 	public boolean isOfType(String ISBN) {
 		String[] splittedISBN = ISBN.split("-");
-		if(splittedISBN.length != 4) {
+		if (splittedISBN.length != 4) {
 			return false;
 		}
 		ArrayList<Integer> numbers = getAsList(splittedISBN);
-		return calculateCheckDigit(numbers) == numbers.get(0);
+		return (calculateCheckDigit(numbers) == numbers.get(0));
 	}
 
 	private ArrayList<Integer> getAsList(String[] splittedISBN) {
@@ -30,7 +30,7 @@ public class ISBN10 implements ISBNType {
 
 	private int calculateCheckDigit(ArrayList<Integer> numbers) {
 		int calculatedCheckDigit = 0;
-		for(int i = 1; i <= 9; i++) {
+		for (int i = 1; i <= 9; i++) {
 			calculatedCheckDigit += numbers.get(i) * i;
 		}
 		return calculatedCheckDigit % 11;
@@ -39,7 +39,7 @@ public class ISBN10 implements ISBNType {
 	private ArrayList<Integer> getAsSingleNumbers(String numberString) {
 		ArrayList<Integer> numberList = new ArrayList<Integer>();
 		char[] numberArray = numberString.toCharArray();
-		for(int i = 0; i < numberArray.length; i++) {
+		for (int i = 0; i < numberArray.length; i++) {
 			numberList.add(Integer.parseInt(String.valueOf(numberArray[i])));
 		}
 		return numberList;

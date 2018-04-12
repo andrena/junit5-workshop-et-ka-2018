@@ -1,6 +1,9 @@
-package library.activies.reading;
+package abstractTests;
 
 import library.Book;
+import library.activies.reading.Progression;
+import library.activies.reading.ReadingMethod;
+import library.activies.reading.SpeedReading;
 
 public class SpeedReadingTest extends ReadingMethodTest {
 
