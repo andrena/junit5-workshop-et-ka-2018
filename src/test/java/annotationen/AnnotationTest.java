@@ -49,6 +49,7 @@ public class AnnotationTest {
 	@Test
 	@Repeat(times = 5)
 	public void testRepeat() throws Exception {
+
 		libraryManager.rentBook(booksToRent.get(index++));
 
 		long count = libraryManager.availableBookCount();

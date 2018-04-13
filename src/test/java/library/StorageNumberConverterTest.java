@@ -1,18 +1,20 @@
 package library;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import library.StorageNumberConverter;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 public class StorageNumberConverterTest {
 
-	@Test
-	public void hundretToRomain() {
+	@DisplayName("Zahlen konvertieren")
+	@ParameterizedTest(name = "{0} zu {1}")
+	@CsvFileSource(resources = { "romanNumbers.csv" })
+	void toRomanTest(int arabisch, String roman) {
 		StorageNumberConverter converter = new StorageNumberConverter();
 
-		for (int index = 1; index <= 100; index++) {
-			System.out.println(converter.toRoman(index));
-		}
+		assertEquals(converter.toRoman(arabisch), roman);
 	}
 
 }

@@ -11,12 +11,8 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
-import library.Book;
-import library.Customer;
-import library.RentCalculator;
-
 @RunWith(Parameterized.class)
-public class Junit4ParamterizedTest {
+public class RentCalculatorJunit4Test {
 
 	@Parameter
 	public Customer customer;
@@ -27,7 +23,10 @@ public class Junit4ParamterizedTest {
 	@Parameters(name = "Tagespreis für 2 Bücher für {0} ist {1}")
 	public static Collection<Object[]> parameters() {
 		return asList(
-				new Object[][] { { Customer.PENSIONER, 4.4 }, { Customer.STUDENT, 4.4 }, { Customer.REGULAR, 5.0 }, });
+				new Object[][] { //
+						{ Customer.PENSIONER, 4.4 }, //
+						{ Customer.STUDENT, 4.4 }, //
+						{ Customer.REGULAR, 5.0 }, });
 	}
 
 	@Test

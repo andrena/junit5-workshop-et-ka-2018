@@ -9,8 +9,8 @@ public class Book {
 	private BookState state;
 	private List<Page> pages;
 
-	public Book(String imei, String title) {
-		this.ISBN = imei;
+	public Book(String isbn, String title) {
+		this.ISBN = isbn;
 		this.title = title;
 		state = BookState.AVAILABLE;
 	}
