@@ -1,15 +1,42 @@
 package library;
 
-public enum Customer {
-	STUDENT(2.2), PENSIONER(2.2), REGULAR(2.5);
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-	private final double dailyFee;
+public class Customer {
+	private String name;
+	private String borrowedBook;
+	private LocalDate dueDate;
+	private CustomerFee fee;
 
-	private Customer(double dailyFee) {
-		this.dailyFee = dailyFee;
+	public Customer(String name, CustomerFee fee) {
+		this.name = name;
+		this.fee = fee;
 	}
 
-	public double getDailyFee() {
-		return dailyFee;
+	public String getName() {
+		return name;
 	}
+
+	private String getBorrowedBookReportLine() {
+		return String.format("%s rented %s at %s", name, borrowedBook, dueDate.format(DateTimeFormatter.ISO_DATE));
+	}
+
+	public void borrow(String booktitle, LocalDate dueDate) {
+		this.borrowedBook = booktitle;
+		this.dueDate = dueDate;
+	}
+
+	public void writeBorrowedBooksReportToFile(File reportFile) throws IOException {
+		FileOutputStream fileOutputStream = new FileOutputStream(reportFile);
+
+		fileOutputStream.write(getBorrowedBookReportLine().getBytes());
+
+		fileOutputStream.flush();
+		fileOutputStream.close();
+	}
+
 }

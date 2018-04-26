@@ -12,6 +12,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
+import library.Customer;
+import library.CustomerFee;
+
 public class CustomerJunit4Test {
 
 	@Rule
@@ -19,7 +22,7 @@ public class CustomerJunit4Test {
 
 	@Test
 	public void generateBorrowedBooksReport_generatesAReportFileWithTheBorrowedBook() throws IOException {
-		Customer customer = new Customer("CustomerName");
+		Customer customer = new Customer("CustomerName", CustomerFee.REGULAR);
 		customer.borrow("BookTitle", LocalDate.of(2018, Month.MAY, 4));
 
 		File file = temporaryFolder.newFile("customerReportFile.txt");
