@@ -18,25 +18,24 @@ TODO
 * Tests schreiben
 	* NestedTests vs HierarchicalRunner (Felix)
 	* TemporaryFolderRule (Dirk)
-	* Abstract Tests nach Contracts (Johannes)
+	* [Abstract Tests nach Contracts](files/abstractTests.md) (Johannes)
 	* Hamcrest Matchers vs AssertJ (Claudia)
 		* Showcase einfache Migration
 			* manuell einbinden von hamcrest
 			* AssertJ funktioniert direkt
 	* Mocken ohne MockitoRunner (Claudia)
 	* TimeZoneRule (Dirk)
-	* TestSuites (Johannes)
+	    * Kein Test nach vier
+	* [TestSuites](files/Testsuites.md) (Johannes)
 		* Fast/LongRunning
-		* Kein Test nach vier
 		* Integration/Unit/Selenium tests
-		* ...
 	* Junit5 Annotationen (Claudia)
 		* Displayname
 		* Repeated (vs Rule)
 		* Disabled (vs Ignore)
 	* LifeCycle Annotationen (Before, After,...) (Claudia)
 	* AssertTimeout und Futures (Felix)
-	* Exception Testing assertThrows vs ExpectedException (Johannes)
+	* [Exception Testing assertThrows vs ExpectedException](files/ExpectedException.md) (Johannes)
 	* Eigene Extension (Dirk)
 		* ?
 	* Parametrized Tests (Felix)
