@@ -8,7 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import library.Book;
-import library.Customer;
+import library.CustomerFee;
 import library.RentCalculator;
 
 public class RentCalculatorTest {
@@ -18,7 +18,7 @@ public class RentCalculatorTest {
 	@ParameterizedTest(name = "Tagespreis für 2 Bücher für {0} ist {1}")
 	@DisplayName("Tagespreis berechnen")
 	@CsvSource({ "STUDENT, 4.4", "PENSIONER, 4.4" })
-	void calculate(Customer customer, double fee) {
+	void calculate(CustomerFee customer, double fee) {
 		underTest = new RentCalculator();
 		
 		Book book = new Book("ABC", "Testbook");
@@ -35,7 +35,7 @@ public class RentCalculatorTest {
 
 		Book book = new Book("ABC", "Testbook");
 
-		double calculatedFee = underTest.calculateDailyFee(Customer.REGULAR, book, book);
+		double calculatedFee = underTest.calculateDailyFee(CustomerFee.REGULAR, book, book);
 
 		assertEquals(5.0, calculatedFee);
 	}

@@ -13,6 +13,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import extensions.temporaryFolder.TempFile;
 import extensions.temporaryFolder.TemporaryFolderExtension;
+import library.Customer;
+import library.CustomerFee;
 
 public class CustomerJunit5Test {
 
@@ -20,7 +22,7 @@ public class CustomerJunit5Test {
 	@ExtendWith(TemporaryFolderExtension.class)
 	public void generateBorrowedBooksReport_generatesAReportFileWithTheBorrowedBook(@TempFile File file)
 			throws IOException {
-		Customer customer = new Customer("CustomerName");
+		Customer customer = new Customer("CustomerName", CustomerFee.REGULAR);
 		customer.borrow("BookTitle", LocalDate.of(2018, Month.MAY, 4));
 
 		customer.writeBorrowedBooksReportToFile(file);

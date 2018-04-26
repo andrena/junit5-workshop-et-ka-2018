@@ -15,7 +15,7 @@ import org.junit.runners.Parameterized.Parameters;
 public class RentCalculatorJunit4Test {
 
 	@Parameter
-	public Customer customer;
+	public CustomerFee customer;
 
 	@Parameter(1)
 	public double expectedFee;
@@ -24,9 +24,9 @@ public class RentCalculatorJunit4Test {
 	public static Collection<Object[]> parameters() {
 		return asList(
 				new Object[][] { //
-						{ Customer.PENSIONER, 4.4 }, //
-						{ Customer.STUDENT, 4.4 }, //
-						{ Customer.REGULAR, 5.0 }, });
+						{ CustomerFee.PENSIONER, 4.4 }, //
+						{ CustomerFee.STUDENT, 4.4 }, //
+						{ CustomerFee.REGULAR, 5.0 }, });
 	}
 
 	@Test

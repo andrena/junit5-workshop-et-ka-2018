@@ -11,7 +11,7 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import library.Book;
-import library.Customer;
+import library.CustomerFee;
 import library.LibraryManager;
 import library.RentCalculator;
 
@@ -61,7 +61,7 @@ public class AnnotationTest {
 	public void testDieserNameIstMist() throws Exception {
 		RentCalculator rentCalculator = new RentCalculator();
 
-		double dailyFee = rentCalculator.calculateDailyFee(Customer.PENSIONER, book, book1);
+		double dailyFee = rentCalculator.calculateDailyFee(CustomerFee.PENSIONER, book, book1);
 
 		assertEquals(4.4d, dailyFee, 0.0);
 	}
@@ -71,7 +71,7 @@ public class AnnotationTest {
 	public void ignore() throws Exception {
 		RentCalculator rentCalculator = new RentCalculator();
 
-		double dailyFee = rentCalculator.calculateDailyFee(Customer.STUDENT, book, book1);
+		double dailyFee = rentCalculator.calculateDailyFee(CustomerFee.STUDENT, book, book1);
 
 		assertEquals(12d, dailyFee, 0.0);
 	}

@@ -5,7 +5,7 @@ public class RentCalculator {
 	public RentCalculator() {
 	}
 
-	public double calculateDailyFee(Customer customer, Book... books) {
+	public double calculateDailyFee(CustomerFee customer, Book... books) {
 		double fee = 0;
 		for (Book book : books) {
 			fee += customer.getDailyFee();
