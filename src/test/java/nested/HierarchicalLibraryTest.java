@@ -1,4 +1,4 @@
-package library;
+package nested;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -8,6 +8,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import de.bechte.junit.runners.context.HierarchicalContextRunner;
+import library.Book;
+import library.BookState;
+import library.LibraryManager;
 
 @RunWith(HierarchicalContextRunner.class)
 public class HierarchicalLibraryTest {
