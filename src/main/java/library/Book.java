@@ -1,13 +1,19 @@
 package library;
 
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class Book {
 
-	private final String ISBN;
-	private final String title;
+	@Id
+	private String ISBN;
+	private String title;
 	private BookState state;
-	private List<Page> pages;
+	private int pageCount;
+
+	public Book() {
+	}
 
 	public Book(String isbn, String title) {
 		this.ISBN = isbn;
@@ -15,11 +21,11 @@ public class Book {
 		state = BookState.AVAILABLE;
 	}
 
-	public Book(String ISBN, String title, List<Page> pages) {
+	public Book(String ISBN, String title, int pageCount) {
 		super();
 		this.ISBN = ISBN;
 		this.title = title;
-		this.pages = pages;
+		this.pageCount = pageCount;
 	}
 
 	public String getISBN() {
@@ -38,12 +44,13 @@ public class Book {
 		this.state = state;
 	}
 
-	public List<Page> getPages() {
-		return pages;
+	public int getPageCount() {
+		return pageCount;
 	}
 
-	public void setPages(List<Page> pages) {
-		this.pages = pages;
+	@Override
+	public String toString() {
+		return "Book [ISBN=" + ISBN + ", title=" + title + ", state=" + state + ", pages=" + pageCount + "]";
 	}
 
 }

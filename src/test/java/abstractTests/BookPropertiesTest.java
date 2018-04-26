@@ -1,5 +1,6 @@
 package abstractTests;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -14,8 +15,7 @@ public abstract class BookPropertiesTest {
 	@Test
 	public void testPageCountHasPages() {
 		Book book = createBook();
-		assertNotNull(book.getPages());
-		assertFalse(book.getPages().size() == 0);
+		assertThat(book.getPageCount()).isEqualTo(0);
 	}
 
 	@Test

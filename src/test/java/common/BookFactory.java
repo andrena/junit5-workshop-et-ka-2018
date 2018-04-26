@@ -9,7 +9,7 @@ public class BookFactory {
 	}
 
 	public static Book getSoftwareDevelopmentBook() {
-		return new Book("978-0132350884", "Clean Code", PageFactory.createPages(462));
+		return new Book("978-0132350884", "Clean Code", 462);
 	}
 
 }
