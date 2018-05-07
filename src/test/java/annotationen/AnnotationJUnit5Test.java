@@ -8,12 +8,11 @@ import java.util.List;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
 import library.Book;
-import library.Customer;
+import library.CustomerFee;
 import library.LibraryManager;
 import library.RentCalculator;
 
@@ -53,18 +52,21 @@ public class AnnotationJUnit5Test {
 	public void testDieserNameIstMist() throws Exception {
 		RentCalculator rentCalculator = new RentCalculator();
 
-		double dailyFee = rentCalculator.calculateDailyFee(Customer.PENSIONER, book, book1);
+		double dailyFee = rentCalculator.calculateDailyFee(CustomerFee.PENSIONER, book, book1);
 
 		assertEquals(4.4d, dailyFee, 0.0);
 	}
 
-	@Test
-	@Disabled
-	public void ignore() throws Exception {
-		RentCalculator rentCalculator = new RentCalculator();
+	// TODO Claudia:
+	// @Test
+	// @Disabled
+	// public void ignore() throws Exception {
+	// RentCalculator rentCalculator = new RentCalculator();
+	//
+	// double dailyFee = rentCalculator.calculateDailyFee(CustomerFee.STUDENT, book,
+	// book1);
+	//
+	// assertEquals(12d, dailyFee, 0.0);
+	// }
 
-		double dailyFee = rentCalculator.calculateDailyFee(Customer.STUDENT, book, book1);
-
-		assertEquals(12d, dailyFee, 0.0);
-	}
 }

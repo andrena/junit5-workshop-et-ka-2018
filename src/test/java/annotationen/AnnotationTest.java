@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Rule;
@@ -65,5 +66,10 @@ public class AnnotationTest {
 		double dailyFee = rentCalculator.calculateDailyFee(CustomerFee.STUDENT, book, book1);
 
 		assertEquals(12d, dailyFee, 0.0);
+	}
+
+	@After
+	public void tearDown() {
+
 	}
 }
