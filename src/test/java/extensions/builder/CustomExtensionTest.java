@@ -10,6 +10,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import extensions.builder.BookBuilderExtension.WithBookState;
 import library.Book;
 import library.BookState;
 import library.LibraryManager;
