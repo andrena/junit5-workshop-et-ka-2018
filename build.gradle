@@ -21,9 +21,9 @@ repositories {
     
 }
 
-ext.junitVintageVersion  = '4.12.1'
-ext.junitPlatformVersion = '1.0.1'
-ext.junitJupiterVersion  = '5.0.1'
+ext.junitVintageVersion  = '5.1.1'
+ext.junitPlatformVersion = '1.1.1'
+ext.junitJupiterVersion  = '5.1.1'
 
 
 sourceCompatibility = 1.8
@@ -61,7 +61,7 @@ dependencies {
     
     testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
 
-    testImplementation("org.junit.platform:junit-platform-runner:${junitPlatformVersion}")
+    testImplementation("org.junit.platform:junit-platform-launcher:${junitPlatformVersion}")
 
     testRuntime("org.junit.vintage:junit-vintage-engine:${junitVintageVersion}")
 
