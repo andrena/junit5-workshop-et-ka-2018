@@ -1,21 +1,30 @@
 package mockenOhneMockitoRunner;
 
-// TODO Claudia:
+import static java.util.Arrays.asList;
 
-// @RunWith(MockitoJUnitRunner.class)
-// public class MockenTest {
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import library.Book;
+import library.BookService;
+import library.LibraryManager;
 //
-// @Mock
-// private BookService bookService;
+//@RunWith(MockitoJUnitRunner.class)
+//public class MockenTest {
 //
-// @Before
-// public void setUp() {
-// when(bookService.findAll()).thenReturn(Arrays.asList(new Book()));
-// }
+//	@Mock
+//	private BookService bookService;
 //
-// @Test
-// public void testName() throws Exception {
-// LibraryManager libraryManager = new LibraryManager(asList(new Book("isbn",
-// "title")));
-// }
-// }
+//	private Book book = new Book();
+//
+//	@Before
+//	public void setUp() {
+//		when(bookService.findAll()).thenReturn(asList(book));
+//	}
+//
+//	@Test
+//	public void testName() throws Exception {
+//		LibraryManager libraryManager = new LibraryManager(asList(new Book("isbn", "title")));
+//	}
+//}
