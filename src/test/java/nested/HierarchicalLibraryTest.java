@@ -29,9 +29,9 @@ public class HierarchicalLibraryTest {
 
 	public class WithBook {
 
-		private final Book junitBook = new Book("ABC123", "Junit Jupiter");
-		private final Book javaBook = new Book("456QB", "Java für Anfänger");
-		private final Book scrumBook = new Book("DJEW123", "ScrumGuide");
+		private final Book junitBook = new Book("3-598-21501-0", "Junit Jupiter");
+		private final Book javaBook = new Book("3-86680-192-0", "Java für Anfänger");
+		private final Book scrumBook = new Book("0-13235-088-2", "CleanCode");
 
 		@Before
 		public void setUp() {
@@ -55,7 +55,7 @@ public class HierarchicalLibraryTest {
 
 		@Test
 		public void hasBook() {
-			assertTrue(underTest.hasBook("ABC123"));
+			assertTrue(underTest.hasBook("3-598-21501-0"));
 		}
 
 		public class WithSomeBooksRent {

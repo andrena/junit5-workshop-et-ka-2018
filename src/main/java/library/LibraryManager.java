@@ -18,6 +18,12 @@ public class LibraryManager {
 
 	private Map<String, Book> books;
 
+	public LibraryManager(ISBNValidator isbnValidator, RentCalculator rentCalculator) {
+		this.isbnValidator = isbnValidator;
+		this.rentCalculator = rentCalculator;
+		init();
+	}
+
 	public LibraryManager() {
 		init();
 	}
@@ -64,9 +70,9 @@ public class LibraryManager {
 	public void addBook(Book book) {
 		String isbn = book.getISBN();
 		try {
-			isbnValidator.validate(isbn);
-			books.put(isbn, book);
-			bookService.add(book);
+			if (isbnValidator.validate(isbn)) {
+				books.put(isbn, book);
+			}
 		} catch (InvalidISBNException e) {
 			System.out.println("Validation of isbn failed. book=" + book + "exception=" + e);
 		}

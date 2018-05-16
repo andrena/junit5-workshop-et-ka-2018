@@ -20,11 +20,11 @@ public class AnnotationTest {
 	private LibraryManager libraryManager;
 	private List<Book> booksToRent;
 
-	private Book book = new Book("imei", "title");
-	private Book book1 = new Book("imei1", "title1");
-	private Book book2 = new Book("imei2", "title2");
-	private Book book3 = new Book("imei3", "title3");
-	private Book book4 = new Book("imei4", "title4");
+	private Book book = new Book("3-86680-192-0", "Buch0");
+	private Book book1 = new Book("3-598-21501-0", "Buch1");
+	private Book book2 = new Book("3-598-21502-9", "Buch2");
+	private Book book3 = new Book("3-598-21503-7", "Buch3");
+	private Book book4 = new Book("3-598-21504-5", "Buch4");
 	private int index = 0;
 	private int bookCount = 4;
 
@@ -40,7 +40,6 @@ public class AnnotationTest {
 	@Test
 	@Repeat(times = 5)
 	public void testRepeat() throws Exception {
-
 		libraryManager.rentBook(booksToRent.get(index++));
 
 		long count = libraryManager.availableBookCount();
