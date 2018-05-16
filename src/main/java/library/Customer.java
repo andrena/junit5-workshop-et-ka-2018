@@ -5,16 +5,19 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Customer {
 	private String name;
-	private String borrowedBook;
+	private List<Book> borrowedBooks;
 	private LocalDate dueDate;
 	private CustomerFee fee;
 
 	public Customer(String name, CustomerFee fee) {
 		this.name = name;
 		this.fee = fee;
+		borrowedBooks = new ArrayList<>();
 	}
 
 	public String getName() {
@@ -22,11 +25,11 @@ public class Customer {
 	}
 
 	private String getBorrowedBookReportLine() {
-		return String.format("%s rented %s at %s", name, borrowedBook, dueDate.format(DateTimeFormatter.ISO_DATE));
+		return String.format("%s rented %s at %s", name, borrowedBooks, dueDate.format(DateTimeFormatter.ISO_DATE));
 	}
 
-	public void borrow(String booktitle, LocalDate dueDate) {
-		this.borrowedBook = booktitle;
+	public void borrow(Book booktitle, LocalDate dueDate) {
+		this.borrowedBooks.add(booktitle);
 		this.dueDate = dueDate;
 	}
 

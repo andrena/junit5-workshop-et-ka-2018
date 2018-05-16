@@ -1,4 +1,4 @@
-package library;
+package library.isbn;
 
 public class InvalidISBNException extends Throwable {
 

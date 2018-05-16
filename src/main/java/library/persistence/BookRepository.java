@@ -1,14 +1,15 @@
-package library;
+package library.persistence;
 
-import java.util.List;
-
+import library.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
-	public List<Book> findByTitleContainingIgnoreCase(String searchString);
+	List<Book> findByTitleContainingIgnoreCase(String searchString);
 
-	public List<Book> findAll();
+	List<Book> findAll();
 }

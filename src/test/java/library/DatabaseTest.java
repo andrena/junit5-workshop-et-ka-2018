@@ -1,6 +1,7 @@
 package library;
 
 
+import library.persistence.BookService;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,7 +16,7 @@ public class DatabaseTest {
 		// Create Spring application context
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/spring.xml");
 
-		// Get service from context.
+		// Get persistence from context.
 		BookService BookService = ctx.getBean(BookService.class);
 
 		// Add some items

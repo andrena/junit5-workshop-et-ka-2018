@@ -1,14 +1,13 @@
 package expectedException;
 
-import static org.junit.Assert.*;
-
+import library.isbn.ISBNValidator;
+import library.isbn.InvalidISBNException;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import library.ISBNValidator;
-import library.InvalidISBNException;
+import static org.junit.Assert.assertTrue;
 
 public class ISBNValidatorTest {
 

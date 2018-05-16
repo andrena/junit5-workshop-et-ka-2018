@@ -1,12 +1,11 @@
 package expectedException;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
+import library.isbn.ISBN10;
 import org.junit.Before;
 import org.junit.Test;
 
-import library.ISBN10;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class ISBN10Test {
 
@@ -18,12 +17,12 @@ public class ISBN10Test {
 	}
 
 	@Test
-	public void testValidISBN() throws Exception {
+	public void testValidISBN() {
 		assertTrue(underTest.isOfType("3-86680-192-0"));
 	}
 
 	@Test
-	public void testInvalidISBN() throws Exception {
+	public void testInvalidISBN() {
 		assertFalse(underTest.isOfType("3-86680-192-5"));
 	}
 

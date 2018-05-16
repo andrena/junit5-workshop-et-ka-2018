@@ -1,12 +1,12 @@
-package library;
+package library.persistence;
 
-import java.util.Collection;
-import java.util.List;
-
-import javax.transaction.Transactional;
-
+import library.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.transaction.Transactional;
+import java.util.Collection;
+import java.util.List;
 
 @Component
 public class BookService {
