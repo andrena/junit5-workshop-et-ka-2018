@@ -1,8 +1,8 @@
 package annotationen;
 
+import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -17,6 +17,9 @@ import library.RentCalculator;
 
 public class AnnotationTest {
 
+	private LibraryManager libraryManager;
+	private List<Book> booksToRent;
+
 	private Book book = new Book("imei", "title");
 	private Book book1 = new Book("imei1", "title1");
 	private Book book2 = new Book("imei2", "title2");
@@ -25,25 +28,13 @@ public class AnnotationTest {
 	private int index = 0;
 	private int bookCount = 4;
 
-	private LibraryManager libraryManager = new LibraryManager();
-	private List<Book> booksToRent;
-
 	@Rule
 	public RepeatRule repeatRule = new RepeatRule();
 
 	@Before
 	public void setup() {
-		booksToRent = new ArrayList<>();
-		booksToRent.add(book);
-		booksToRent.add(book1);
-		booksToRent.add(book2);
-		booksToRent.add(book3);
-		booksToRent.add(book4);
-		libraryManager.addBook(book);
-		libraryManager.addBook(book1);
-		libraryManager.addBook(book2);
-		libraryManager.addBook(book3);
-		libraryManager.addBook(book4);
+		booksToRent = asList(book, book1, book2, book3, book4);
+		libraryManager = new LibraryManager(booksToRent);
 	}
 
 	@Test
@@ -75,4 +66,5 @@ public class AnnotationTest {
 
 		assertEquals(12d, dailyFee, 0.0);
 	}
+
 }

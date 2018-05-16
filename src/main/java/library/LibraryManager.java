@@ -1,6 +1,7 @@
 package library;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class LibraryManager {
@@ -11,10 +12,15 @@ public class LibraryManager {
 		books = new HashMap<>();
 	}
 
+	public LibraryManager(List<Book> newBooks) {
+		books = new HashMap<>();
+		addBooks(newBooks);
+	}
+
 	public Book getBook(String imei) {
 		return books.get(imei);
 	}
-	
+
 	public boolean hasBook(String imei) {
 		return books.containsKey(imei);
 	}
@@ -40,6 +46,10 @@ public class LibraryManager {
 
 	public void addBook(Book book) {
 		books.put(book.getISBN(), book);
+	}
+
+	public void addBooks(List<Book> booksToAdd) {
+		booksToAdd.forEach(this::addBook);
 	}
 
 	public long availableBookCount() {
