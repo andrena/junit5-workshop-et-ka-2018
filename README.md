@@ -1,44 +1,53 @@
-Die Datei müssen wir irgendwann noch zu einer Lesbaren Anleitung umwandeln :)
 
-Hier mal die Use-Cases für die wir im Projekt aktuell Runner/Rules haben:
-* Rules
-	* ExpectedException - asserts auf Exceptions
-	* ErrorCollector - mehrere Asserts auch bei Failure und dann alle Failures gemeinsam ausgeben (für Aufwändigere/integrativere Tests)
-	* TimeZoneRule - Custom Rule, die im @Before Timezone.setDefault(myDefault) und im @After Timezone.setDefault(oldDefault) setzt, wobei myDefault ein Konstruktor Argument ist und oldDefault zwischengespeichert wird => Für Tests, die Date Strings parsen, damit man Asserts Platformunabhängig (unterschied lokal vs Jenkins) machen kann
-	* TemporaryFolder - falls beim Test I/O Operationen gemacht werden; damit man keine Dateien durch unittests anlegt
-	* ApplicationContextModifier (extends ExternalResource) - Custom Rule, in der per Reflection beliebige Beans durch Mock Implementierungen ersetzt werden können (da dies nicht in jedem Projektbereich bei uns einfach per Mockito möglich ist); im @After wird zurück gesetzt
-	* RuleChain: OuterRule => RetryRule => RepeatRule => ShopTestContextRule => CleanupRule - wird in unserem Fancy Selenium Projekt genutzt, im Wesentlichen sorgt das dafür, dass Tests n mal wiederholt werden und dass davor Daten in eine DB geschrieben werden und alle Daten, die während dem Test in die DB geschrieben wurden danach wieder aufgeräumt werden
-* Runners
-	* Categories/Classpathsuite -> Testsuites, z.B. für alle Tests mit @LongRunning Annotation
-	* Parametrized
-	* MockitoJunitRunner
-	* SpringJunitRunner
+# JUnit 5: Das will ich jetzt auch benutzen!
 
-TODO
-* Tests schreiben
-	* NestedTests vs HierarchicalRunner (Felix)
-	* TemporaryFolderRule (Dirk)
-	* [Abstract Tests nach Contracts](files/abstractTests.md) (Johannes)
-	* Hamcrest Matchers vs AssertJ (Claudia)
-		* Showcase einfache Migration
-			* manuell einbinden von hamcrest
-			* AssertJ funktioniert direkt
-	* Mocken ohne MockitoRunner (Claudia)
-	* TimeZoneRule (Dirk)
-	    * Kein Test nach vier
-	* [TestSuites](files/Testsuites.md) (Johannes)
-		* Fast/LongRunning
-		* Integration/Unit/Selenium tests
-	* Junit5 Annotationen (Claudia)
-		* Displayname
-		* Repeated (vs Rule)
-		* Disabled (vs Ignore)
-	* LifeCycle Annotationen (Before, After,...) (Claudia)
-	* AssertTimeout und Futures (Felix)
-	* [Exception Testing assertThrows vs ExpectedException](files/ExpectedException.md) (Johannes)
-	* Eigene Extension (Dirk)
-		* ?
-	* Parametrized Tests (Felix)
-	*
-* Pro Punkt von Oben >=1 Folie erstellen!
-* 
+„Ich möchte JUnit 5 benutzen, habe aber keine Ahnung, wie ich eigentlich anfangen soll...“
+Probieren wir es doch einfach und fangen an. Heute!
+JUnit 4 war in den letzten Jahren eines der meist verwendeten Frameworks, um Anwendungen automatisiert zu testen. Mit JUnit 5 steht jetzt der Nachfolger in den Startlöchern. Viele Entwickler fragen sich nun: Upgrade? Und wenn ja, wie?
+In diesem Workshop werden wir gemeinsam eine JUnit 4-Lösung umstellen auf JUnit 5 – in kleinen, überschaubaren Schritten.
+
+# Themen
+
+* [Annotation](files/Annotations.md)
+* [Exceptions](files/ExpectedException.md)
+* [Hamcrest und AssertJ](files/hamcrest.md)
+* [Extensions](files/extensions.md)
+* [Test Suites](files/Testsuites.md)
+* [Abstract Tests](files/abstractTests.md)
+
+## JUnit 5 einbinden
+Zum Einbinden in JUnit 5 muss die [build.gradle-Datei](build.gradle) angepasst werden.
+
+JUnit 5 verwendet einen Modularen Ansatz, daher müssen mehrere Dependencies eingebunden werden.
+
+ Um JUnit 4 und 5 in unserem Projekt gleichzeitig einsetzten zu können werden folgende Anhänigkeiten benötigt.  
+ Um verschiedene TestEngines laufen zu lassen benötigen wir die JUnit Platform.
+ Das Modul JUnit Vintage bietet uns TestEngines um JUnit 3 und 4 auf der Platform Test auszuführen.
+   
+ org.junit.platform:junit-platform-launcher 
+ org.junit.vintage:junit-vintage-engine
+ 
+ Prinzipjell können wir damit JUnit 4 Test ausführen um JUnit 4 Rules weiter nutzten zu können benötigten wird jedoch noch das Modul JUnit Jupiter Migrationsupport.
+ Denn mit JUnit 5 sollen keine Rules mehr eingesetzt werden.  
+ 
+ org.junit.jupiter:junit-jupiter-migrationsupport
+ 
+ Die JUnit Jupiter Engine ermöglicht es uns JUnit 5 Test über die Platform auszuführen, die wir mit hilfe der JUnit Jupiter API geschrieben haben. 
+ 
+ org.junit.jupiter:junit-jupiter-api
+ org.junit.jupiter:junit-jupiter-engine
+
+## Annotationen
+
+## Exceptions
+
+
+## Parametrisierte Tests
+org.junit.jupiter:junit-jupiter-params
+
+
+# Von:
+* Claudia Fuhrmann
+* Dirk Tröndle
+* Felix Schlosser
+* Johannes Göring 
