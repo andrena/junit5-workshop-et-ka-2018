@@ -52,8 +52,9 @@ nb-configuration.xml
 release.properties
 pom.xml.releaseBackup
 pom.xml.tag
-.gradle/
-/bin/
 
+#Custom
+.gradle
+bin
 *.bin
 *.lock
