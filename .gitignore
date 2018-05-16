@@ -54,3 +54,6 @@ pom.xml.releaseBackup
 pom.xml.tag
 .gradle/
 /bin/
+
+*.bin
+*.lock

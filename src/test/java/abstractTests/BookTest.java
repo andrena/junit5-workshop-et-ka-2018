@@ -5,10 +5,9 @@ import library.Book;
 
 public class BookTest extends BookPropertiesTest {
 
-	@Override
-	public Book createBook() {
-		Book book = BookFactory.getBook();
-		return book;
-	}
+    @Override
+    public Book createBook() {
+        return BookFactory.getBook();
+    }
 
 }

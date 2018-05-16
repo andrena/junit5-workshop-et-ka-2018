@@ -1,15 +1,15 @@
 package library;
 
-import static java.util.Arrays.asList;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.util.Collection;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
+
+import java.util.Collection;
+
+import static java.util.Arrays.asList;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class RentCalculatorJunit4Test {
@@ -35,8 +35,8 @@ public class RentCalculatorJunit4Test {
 
 		Book book = new Book("ABC", "Testbook");
 		double dailyFee = calculator.calculateDailyFee(customer, book, book);
-			
-		assertEquals(expectedFee, dailyFee);
+
+		assertEquals(expectedFee, dailyFee, 0.0);
 	}
 
 }

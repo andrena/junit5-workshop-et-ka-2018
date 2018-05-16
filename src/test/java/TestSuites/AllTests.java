@@ -9,7 +9,6 @@ import expectedException.ISBN10Test;
 import expectedException.ISBNValidatorTest;
 import library.DatabaseTest;
 import library.RentCalculatorJunit4Test;
-import library.StorageNumberConverterTest;
 import nested.HierarchicalLibraryTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -30,7 +29,6 @@ import temporaryFolder.CustomerJunit4Test;
         HamcrestAssertJTest.class,
         DatabaseTest.class,
         RentCalculatorJunit4Test.class,
-        StorageNumberConverterTest.class,
         HierarchicalLibraryTest.class,
         CustomerJunit4Test.class
 })

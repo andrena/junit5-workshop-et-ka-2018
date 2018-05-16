@@ -1,11 +1,12 @@
 package library;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.util.Arrays;
 
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.Arrays;
+
+import static org.junit.Assert.assertEquals;
 
 public class DatabaseTest {
 

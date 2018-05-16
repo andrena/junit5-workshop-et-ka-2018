@@ -1,5 +1,4 @@
 apply plugin: 'java'
-	apply plugin: 'org.junit.platform.gradle.plugin'
 apply plugin: 'com.github.ben-manes.versions'
 
 buildscript {
@@ -8,7 +7,6 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.1'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
     }
 }
@@ -18,52 +16,24 @@ repositories {
     maven {
         url 'https://repo.spring.io/libs-release'
     }
-    
+
 }
 
-ext.junitVintageVersion  = '5.1.1'
 ext.junitPlatformVersion = '1.1.1'
-ext.junitJupiterVersion  = '5.1.1'
 
 
 sourceCompatibility = 1.8
 
-junitPlatform {
-    filters {
-        engines {
-            include 'junit-jupiter', 'junit-vintage'
-            // exclude 'custom-engine'
-        }
-        tags {
-            // include 'fast'
-            // exclude 'slow', 'selenium'
-        }
-        packages {
-        }
-    }
-    logManager 'org.apache.logging.log4j.jul.LogManager'
-    details 'tree'
-}
-
 dependencies {
-	implementation "org.springframework.data:spring-data-jpa:2.0.6.RELEASE"
-	
-	implementation 'org.hibernate:hibernate-core:5.3.0.CR1'
-	implementation 'org.hibernate:hibernate-entitymanager:5.3.0.CR1'
-	
-	testImplementation group: 'org.hsqldb', name: 'hsqldb', version: '2.4.0'
-	testImplementation "org.assertj:assertj-core:3.8.0"
-    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:${junitJupiterVersion}")
-    testImplementation("org.junit.jupiter:junit-jupiter-migrationsupport:${junitJupiterVersion}")
+    implementation "org.springframework.data:spring-data-jpa:2.0.6.RELEASE"
+
+    implementation 'org.hibernate:hibernate-core:5.3.0.CR1'
+    implementation 'org.hibernate:hibernate-entitymanager:5.3.0.CR1'
+
+    testImplementation group: 'org.hsqldb', name: 'hsqldb', version: '2.4.0'
+    testImplementation "org.assertj:assertj-core:3.8.0"
     testImplementation group: 'de.bechte.junit', name: 'junit-hierarchicalcontextrunner', version: '4.12.1'
     testImplementation group: 'junit', name: 'junit', version: '4.4'
-    
-    testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
-
-    testImplementation("org.junit.platform:junit-platform-launcher:${junitPlatformVersion}")
-
-    testRuntime("org.junit.vintage:junit-vintage-engine:${junitVintageVersion}")
 
 }
 

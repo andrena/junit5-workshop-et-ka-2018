@@ -1,30 +1,29 @@
 package abstractTests;
 
-import static org.junit.Assert.assertNotNull;
-
-import org.junit.Test;
-
 import common.BookFactory;
 import library.Book;
 import library.activies.reading.Progression;
+import org.junit.Test;
+
+import static org.junit.Assert.assertNotNull;
 
 public abstract class ReadingMethodTest {
 
-	protected abstract Progression readTest(Book book, int timeUnits);
+    protected abstract Progression readTest(Book book, int timeUnits);
 
-	@Test
-	public void testReadingCreatesProgress() throws Exception {
-		assertNotNull(readTest(BookFactory.getBook(), 1));
-	}
+    @Test
+    public void testReadingCreatesProgress() {
+        assertNotNull(readTest(BookFactory.getBook(), 1));
+    }
 
-	@Test
-	public void testReadingTransfersKnowledge() {
-		assertNotNull(readTest(BookFactory.getSoftwareDevelopmentBook(), 10).getKnowledge());
-	}
+    @Test
+    public void testReadingTransfersKnowledge() {
+        assertNotNull(readTest(BookFactory.getSoftwareDevelopmentBook(), 10).getKnowledge());
+    }
 
-	@Test
-	public void testReadingIsFun() {
-		assertNotNull(readTest(BookFactory.getBook(), 10).getFun());
-	}
+    @Test
+    public void testReadingIsFun() {
+        assertNotNull(readTest(BookFactory.getBook(), 10).getFun());
+    }
 
 }
