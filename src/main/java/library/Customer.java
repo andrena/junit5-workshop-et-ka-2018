@@ -24,19 +24,21 @@ public class Customer {
 		return name;
 	}
 
-	private String getBorrowedBookReportLine() {
-		return String.format("%s rented %s at %s", name, borrowedBooks, dueDate.format(DateTimeFormatter.ISO_DATE));
+	private String getBorrowedBookReportLine(Book borrowedBook) {
+		return String.format("%s rented %s at %s", name, borrowedBook.getTitle(), dueDate.format(DateTimeFormatter.ISO_DATE));
 	}
 
-	public void borrow(Book booktitle, LocalDate dueDate) {
-		this.borrowedBooks.add(booktitle);
+	public void borrow(Book book, LocalDate dueDate) {
+		this.borrowedBooks.add(book);
 		this.dueDate = dueDate;
 	}
 
 	public void writeBorrowedBooksReportToFile(File reportFile) throws IOException {
 		FileOutputStream fileOutputStream = new FileOutputStream(reportFile);
 
-		fileOutputStream.write(getBorrowedBookReportLine().getBytes());
+		for (Book book : borrowedBooks) {
+			fileOutputStream.write(getBorrowedBookReportLine(book).getBytes());
+		}
 
 		fileOutputStream.flush();
 		fileOutputStream.close();
