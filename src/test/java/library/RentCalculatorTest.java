@@ -12,7 +12,7 @@ import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class RentCalculatorJunit4Test {
+public class RentCalculatorTest {
 
 	@Parameter
 	public CustomerFee customer;
