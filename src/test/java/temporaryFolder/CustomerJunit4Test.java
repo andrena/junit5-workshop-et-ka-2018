@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.Month;
+import java.time.format.DateTimeFormatter;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -24,12 +24,16 @@ public class CustomerJunit4Test {
 	@Test
 	public void generateBorrowedBooksReport_generatesAReportFileWithTheBorrowedBook() throws IOException {
 		Customer customer = new Customer("CustomerName", CustomerFee.REGULAR);
-		customer.borrow(new Book("3-598-21506-1", "BookTitle"), LocalDate.of(2018, Month.MAY, 4));
+		LocalDate yesterday = LocalDate.now().minusDays(1);
+		customer.borrow(new Book("3-598-21506-1", "BookTitle"), yesterday);
 
 		File file = temporaryFolder.newFile("customerReportFile.txt");
 		customer.writeBorrowedBooksReportToFile(file);
 
-		lines(file.toPath()).forEach(line -> assertThat(line).isEqualTo("CustomerName rented BookTitle at 2018-05-04"));
+		lines(file.toPath())
+				.forEach(line -> assertThat(line)
+						.isEqualTo("CustomerName rented BookTitle at " + yesterday.format(DateTimeFormatter.ISO_DATE)
+								+ " currentFee " + CustomerFee.REGULAR.getDailyFee()));
 	}
 
 }
