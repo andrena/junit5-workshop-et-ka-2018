@@ -37,31 +37,6 @@ JUnit 5 verwendet einen Modularen Ansatz, daher müssen mehrere Dependencies ein
  `org.junit.jupiter:junit-jupiter-api:5.1.1`
  `org.junit.jupiter:junit-jupiter-engine:5.1.1`
  
- Um nun alle unsere Tests mit **Gradle** ausführen zu können sollte die JUnit Platform als Plugin eingebunden werden. 
- 
-`apply plugin: 'org.junit.platform.gradle.plugin'` Version `1.0.1`
-
-Dann ist es möglich die Tests über einen eigenen Gradle-Task durchzuführen.
-
-```groovy
-junitPlatform {
-    filters {
-        engines {
-            include 'junit-jupiter', 'junit-vintage'
-            // exclude 'custom-engine'
-        }
-        tags {
-            // include 'fast'
-            // exclude 'slow', 'selenium'
-        }
-        packages {
-        }
-    }
-    logManager 'org.apache.logging.log4j.jul.LogManager'
-    details 'tree'
-}
-```
-
 ## Parametrisierte Tests
 Das ausführen von Parameterisierten Test mit JUnit 5 funktioniert nicht out of the box dazu wird das Modul JUnit Jupiter Params benötigt.
 
