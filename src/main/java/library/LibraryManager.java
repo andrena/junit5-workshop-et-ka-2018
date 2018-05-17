@@ -14,13 +14,10 @@ public class LibraryManager {
 
 	private ISBNValidator isbnValidator;
 
-	private RentCalculator rentCalculator;
-
 	private Map<String, Book> books;
 
-	public LibraryManager(ISBNValidator isbnValidator, RentCalculator rentCalculator) {
+	public LibraryManager(ISBNValidator isbnValidator) {
 		this.isbnValidator = isbnValidator;
-		this.rentCalculator = rentCalculator;
 		init();
 	}
 
@@ -30,7 +27,6 @@ public class LibraryManager {
 
 	private void init() {
 		books = new HashMap<>();
-		rentCalculator = new RentCalculator();
 		isbnValidator = new ISBNValidator();
 	}
 
