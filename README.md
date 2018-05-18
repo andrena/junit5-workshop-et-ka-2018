@@ -6,6 +6,12 @@ Probieren wir es doch einfach und fangen an. Heute!
 JUnit 4 war in den letzten Jahren eines der meist verwendeten Frameworks, um Anwendungen automatisiert zu testen. Mit JUnit 5 steht jetzt der Nachfolger in den Startlöchern. Viele Entwickler fragen sich nun: Upgrade? Und wenn ja, wie?
 In diesem Workshop werden wir gemeinsam eine JUnit 4-Lösung umstellen auf JUnit 5 – in kleinen, überschaubaren Schritten.
 
+# Projekt
+Als Beispiel Projekt nutzten wir eine Bibliotheksverwaltungssoftware.
+Diese wurde mit JUnit 4 getestet. Wir haben uns jetzt als Team dazu entschieden JUnit 5 einzusetzen.
+
+Da die Software sich noch in einem frühen Entwicklungsstatus befindet wollen wir alle bestehenden Tests nach JUnit 5 umschreiben und die Abhänigkeit auf JUnit 4 komplet los werden.
+
 ## Themen
 
 * [Annotation](files/Annotations.md)
@@ -30,7 +36,7 @@ JUnit 5 verwendet einen Modularen Ansatz, daher müssen mehrere Dependencies ein
  Prinzipjell können wir damit JUnit 4 Test ausführen um JUnit 4 Rules weiter nutzten zu können benötigten wird jedoch noch das Modul JUnit Jupiter Migrationsupport.
  Denn mit JUnit 5 sollen keine Rules mehr eingesetzt werden.  
  
- org.junit.jupiter:junit-jupiter-migrationsupport
+ `org.junit.jupiter:junit-jupiter-migrationsupport`
  
  Die JUnit Jupiter Engine ermöglicht es uns JUnit 5 Test über die Platform auszuführen, die wir mit hilfe der JUnit Jupiter API geschrieben haben. 
  

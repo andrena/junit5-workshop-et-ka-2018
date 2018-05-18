@@ -19,7 +19,7 @@ public class ISBNValidator {
 				return true;
 			}
 		}
-		throw new InvalidISBNException();
+        throw new InvalidISBNException(iSBN);
 	} 
 
 }

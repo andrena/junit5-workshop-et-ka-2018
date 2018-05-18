@@ -32,5 +32,10 @@ public class ISBNValidatorTest {
 		underTest.validate("3-86680-192-5");
 	}
 
+    @Test(expected = InvalidISBNException.class)
+    public void testWithAnnotationInvalidISBN() throws InvalidISBNException {
+        underTest.validate("3-86680-192-5");
+    }
+
 	
 }
