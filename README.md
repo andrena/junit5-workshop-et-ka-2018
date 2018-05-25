@@ -10,7 +10,7 @@ In diesem Workshop werden wir gemeinsam eine JUnit 4-Lösung umstellen auf JUnit
 Als Beispiel Projekt nutzten wir eine Bibliotheksverwaltungssoftware.
 Diese wurde mit JUnit 4 getestet. Wir haben uns jetzt als Team dazu entschieden JUnit 5 einzusetzen.
 
-Da die Software sich noch in einem frühen Entwicklungsstatus befindet wollen wir alle bestehenden Tests nach JUnit 5 umschreiben und die Abhänigkeit auf JUnit 4 komplet los werden.
+Da die Software sich noch in einem frühen Entwicklungsstatus befindet, wollen wir alle bestehenden Tests nach JUnit 5 umschreiben und die Abhängigkeit auf JUnit 4 ablösen.
 
 ## Themen
 
@@ -21,30 +21,30 @@ Da die Software sich noch in einem frühen Entwicklungsstatus befindet wollen wi
 * [Test Suites](files/Testsuites.md)
 * [Abstract Tests](files/abstractTests.md)
 
-## JUnit 5 einbinden
+## Gradle Konfiguration
 Zum Einbinden in JUnit 5 muss die [build.gradle-Datei](build.gradle) angepasst werden.
 
-JUnit 5 verwendet einen Modularen Ansatz, daher müssen mehrere Dependencies eingebunden werden.
+JUnit 5 verwendet einen modularen Ansatz, daher muss mehr als eine Anhängigkeit eingebunden werden.
 
- Um JUnit 4 und 5 in unserem Projekt gleichzeitig einsetzten zu können werden folgende Anhänigkeiten benötigt.  
- Um verschiedene TestEngines laufen zu lassen benötigen wir die JUnit Platform.
- Das Modul JUnit Vintage bietet uns TestEngines um JUnit 3 und 4 auf der Platform Test auszuführen.
+ Um JUnit 4 und 5 in unserem Projekt gleichzeitig einsetzten zu können, werden folgende Anhängigkeiten benötigt.  
+ Um verschiedene TestEngines laufen zu lassen, benötigen wir die JUnit Platform.
+ Das Modul JUnit Vintage bietet uns TestEngines um JUnit 3 und JUnit 4 Tests auf der JUnit 5 Plattform auszuführen.
    
  `org.junit.platform:junit-platform-launcher:1.1.1` 
  `org.junit.vintage:junit-vintage-engine:5.1.1`
  
- Prinzipjell können wir damit JUnit 4 Test ausführen um JUnit 4 Rules weiter nutzten zu können benötigten wird jedoch noch das Modul JUnit Jupiter Migrationsupport.
- Denn mit JUnit 5 sollen keine Rules mehr eingesetzt werden.  
+ Prinzipiell können wir damit JUnit 4 Test ausführen um JUnit 4 Rules weiter nutzten zu können benötigten wird jedoch noch das Modul JUnit Jupiter Migrationssupport.
+ Denn mit JUnit 5 sollen keine Rules mehr eingesetzt werden.
  
  `org.junit.jupiter:junit-jupiter-migrationsupport`
  
- Die JUnit Jupiter Engine ermöglicht es uns JUnit 5 Test über die Platform auszuführen, die wir mit hilfe der JUnit Jupiter API geschrieben haben. 
+ Die JUnit Jupiter Engine ermöglicht es uns JUnit 5 Test über die Plattform auszuführen, die wir mithilfe der JUnit Jupiter API geschrieben haben. 
  
  `org.junit.jupiter:junit-jupiter-api:5.1.1`
  `org.junit.jupiter:junit-jupiter-engine:5.1.1`
  
 ## Parametrisierte Tests
-Das ausführen von Parameterisierten Test mit JUnit 5 funktioniert nicht out of the box dazu wird das Modul JUnit Jupiter Params benötigt.
+Das Ausführen von Parametrisierten Test mit JUnit 5 funktioniert nicht out of the box dazu wird das Modul JUnit Jupiter-Params benötigt.
 
 `org.junit.jupiter:junit-jupiter-params`
 
