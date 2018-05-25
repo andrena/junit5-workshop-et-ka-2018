@@ -16,29 +16,29 @@ Hier mal die Use-Cases für die wir im Projekt aktuell Runner/Rules haben:
 
 TODO
 * Tests schreiben
-	* NestedTests vs HierarchicalRunner (Felix)
-	* TemporaryFolderRule (Dirk)
+	* [NestedTests vs HierarchicalRunner](files/nestedTest.md) (Felix)
 	* [Abstract Tests nach Contracts](files/abstractTests.md) (Johannes)
-	* Hamcrest Matchers vs AssertJ (Claudia)
+	* [Hamcrest Matchers vs AssertJ](files/hamcrest.md) (Claudia)
 		* Showcase einfache Migration
 			* manuell einbinden von hamcrest
 			* AssertJ funktioniert direkt
-	* Mocken ohne MockitoRunner (Claudia)
+	* [Mocken ohne MockitoRunner](files/mocking.md) (Claudia)
+	* [TemporaryFolderRule](files/rules.md) (Dirk)
 	* TimeZoneRule (Dirk)
 	    * Kein Test nach vier
 	* [TestSuites](files/Testsuites.md) (Johannes)
 		* Fast/LongRunning
 		* Integration/Unit/Selenium tests
-	* Junit5 Annotationen (Claudia)
+	* [Junit5 Annotationen](files/annotations.md) (Claudia)
 		* Displayname
 		* Repeated (vs Rule)
 		* Disabled (vs Ignore)
-	* LifeCycle Annotationen (Before, After,...) (Claudia)
-	* AssertTimeout und Futures (Felix)
-	* [Exception Testing assertThrows vs ExpectedException](files/ExpectedException.md) (Johannes)
-	* Eigene Extension (Dirk)
+	* [LifeCycle Annotationen](files/annotations.md) (Before, After,...) (Claudia)
+	* [Exception Testing assertThrows vs ExpectedException](files/expectedException.md) (Johannes)
+	* [Eigene Extension](files/extensions.md) (Dirk)
 		* ?
-	* Parametrized Tests (Felix)
+	* [AssertTimeout und Futures](files/timeoutAndFutures.md) (Felix)
+	* [Parametrized Tests](files/parametrizedTests.md) (Felix)
 	*
 * Pro Punkt von Oben >=1 Folie erstellen!
 * 

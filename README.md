@@ -14,12 +14,16 @@ Da die Software sich noch in einem frühen Entwicklungsstatus befindet, wollen w
 
 ## Themen
 
-* [Annotation](files/Annotations.md)
-* [Exceptions](files/ExpectedException.md)
+* [Annotation](files/annotations.md)
+* [Exceptions](files/expectedException.md)
 * [Hamcrest und AssertJ](files/hamcrest.md)
 * [Extensions](files/extensions.md)
 * [Test Suites](files/Testsuites.md)
 * [Abstract Tests](files/abstractTests.md)
+* [Nested Tests](files/nestedTest.md)
+* [Mocken](files/mocking.md)
+* [Rules](files/rules.md)
+* [Parametrized Tests](files/parametrizedTests.md)
 
 ## Gradle Konfiguration
 Zum Einbinden in JUnit 5 muss die [build.gradle-Datei](build.gradle) angepasst werden.
