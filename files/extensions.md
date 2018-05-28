@@ -16,6 +16,7 @@ Weitere Informationen zu Extensions findet ihr u.a. [hier](https://junit.org/jun
 
 ## Für die Übung relevante Extensions
 | Interface | Description |
+| ---------- |:----------:|
 | ExtensionContext.Store | Store provides methods for extensions to save and retrieve data. |
 | ParameterResolver | ParameterResolver defines the API for Extensions that wish to dynamically resolve arguments for parameters at runtime. |
 
