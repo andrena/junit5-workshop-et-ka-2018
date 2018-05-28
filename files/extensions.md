@@ -13,6 +13,7 @@ Eine Extension ist eine Java Klasse, die eines der Interfaces aus org.junit.jupi
 Sie darf **keinen eigenen State** haben! Man kann aber Objekte in einem von JUnit gemanagtem Store (der im Wesentlichen eine Map<Object, Object> ist und nach dem Beenden des Tests gelöscht wird) ablegen und wieder holen.
 
 ## LifeCycle Extensions
+
 Einige der Extension-Interfaces beeinflussen den Lifecycle eines Tests. Für eine Übersicht der Reihenfolge siehe dieser (und weiterer Annotationen) siehe:
 ![Reihenfolge von Lifecycle Extensions](https://junit.org/junit5/docs/current/user-guide/images/extensions_lifecycle.png)
 
@@ -20,6 +21,15 @@ Eine Liste aller Interfaces ist in der [Package-Summary](https://junit.org/junit
 Weitere Informationen zu Extensions findet ihr u.a. [hier](https://junit.org/junit5/docs/current/user-guide/#extensions)
 
 ## Einbinden von Extensions
+
+Für Runners gab es ``@RunWith(MyRunner.class)`` auf Klassenebene, für Rules gab es ``@Rule`` auf Feldebene. Beide Annotationen gibt es mit JUnit5 nicht mehr. Stattdessen kann man mittels ``@ExtendWith(MyExtension.class)`` auf Klassen- oder Methodenebene die Extension für die Testklasse/Testmethode aktivieren. Mann kann auch mehrere Extensions als Array übergeben ``@ExtendWith({MyExtension1.class, MyExtension2.class})``. 
+Alternativ kann man eine Extension auch auf Feldebene mittels ``@RegisterExtension`` einbinden. 
+
+Die Wahl der Einbindung hat einen Einfluss auf die Reihenfolge, wann welche Extension geladen wird.
+
+Für weitere Informationen siehe auch den [JUnit5 User Guide](https://junit.org/junit5/docs/current/user-guide/#extensions-registration).
+
+
 
 ## Für die Übung relevante Extensions
 | Interface | Description |
