@@ -1,12 +1,7 @@
 package library;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 public class Book {
 
-	@Id
 	private String ISBN;
 	private String title;
 	private BookState state;
