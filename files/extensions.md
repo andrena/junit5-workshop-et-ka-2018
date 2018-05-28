@@ -23,7 +23,11 @@ Weitere Informationen zu Extensions findet ihr u.a. [hier](https://junit.org/jun
 | ExtensionContext.Store | Store provides methods for extensions to save and retrieve data. |
 | ParameterResolver | ParameterResolver defines the API for Extensions that wish to dynamically resolve arguments for parameters at runtime. |
 
-Eine Beispielhafte Nutzung dieser Extensions kann wie folgt aussehen:
+### Hinweis
+Falls die Testmethode einen Parameter hat, für die supportsParameter Methode von keiner registrierten Extension (an Methode oder Klasse) true liefert, fliegt bei Testausführung eine ParameterResolutionException.  
+
+### Beispiel
+Eine Implementierung der ParameterResolver Extension, die für jeden Parameter eine andere Instanz zurück gibt kann wie folgt aussehen:
 
 ```
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -32,7 +36,7 @@ import org.junit.jupiter.api.extension.ParameterContext;
 import org.junit.jupiter.api.extension.ParameterResolutionException;
 import org.junit.jupiter.api.extension.ParameterResolver;
 
-public class BookBuilderExtension implements ParameterResolver {
+public class MyExtension implements ParameterResolver {
 
 	@Override
 	public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext)
@@ -64,7 +68,7 @@ Und der benutzende Test:
 
 ```
 	@Test
-	@ExtendWith(BookBuilderExtension.class)
+	@ExtendWith(MyExtension.class)
 	void someTestUsingOurExtension(int a, int b, int c) throws Exception {
 		assertThat(a).isEqualTo(1);
 		assertThat(b).isEqualTo(2);
@@ -75,7 +79,7 @@ Und der benutzende Test:
 Man kann auch eigene Annotation in der Extension definieren, um genauere Ausprägungen des Parameters zurück zu geben, z.B. direkt eine File oder ein Directory (die beide Instanzen vom Typ File sind) oder ein Objekt, bei dem bestimmte Parameter schon gesetzt sind.
 
 ```
-@Target({ ElementType.TYPE, ElementType.PARAMETER })
+	@Target({ ElementType.TYPE, ElementType.PARAMETER })
 	@Retention(RetentionPolicy.RUNTIME)
 	@Documented
 	public @interface GreaterThan {
@@ -91,7 +95,7 @@ Man kann auch eigene Annotation in der Extension definieren, um genauere Ausprä
 		@SuppressWarnings("unchecked")
 		List<Integer> alreadyUsed = store.getOrComputeIfAbsent("alreadyUsedIntegers", key->new ArrayList<Integer>(), List.class);
 		
-		int currentInt= parameterContext.findAnnotation(GreaterThan.class).map(GreaterThan::value).orElseGet(()->1);
+		int currentInt= parameterContext.findAnnotation(GreaterThan.class).map(greaterThan->greaterThan.value()+1).orElseGet(()->1);
 		while(alreadyUsed.contains(Integer.valueOf(currentInt))) {
 			currentInt++;
 		}
@@ -104,7 +108,7 @@ Im Test sieht das dann so aus:
 
 ```
 	@Test
-	@ExtendWith(BookBuilderExtension.class)
+	@ExtendWith(MyExtension.class)
 	void someTestUsingOurExtension(int a, int b, @GreaterThan(10)int c) throws Exception {
 		assertThat(a).isEqualTo(1);
 		assertThat(b).isEqualTo(2);
