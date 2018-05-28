@@ -132,4 +132,4 @@ Im Test sieht das dann so aus:
 
 ## Weiterführender Link
 
-Im github Projekt [junit-pioneer](https://github.com/junit-pioneer/junit-pioneer/) werden von der Community 
+Im github Projekt [junit-pioneer](https://github.com/junit-pioneer/junit-pioneer/) werden von der Community Ideen zu Extensions diskutiert und implementiert.  
