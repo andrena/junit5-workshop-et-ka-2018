@@ -1,12 +1,16 @@
 # Extensions WIP
 
-In JUnit 4 gab es die Möglichkeit Rules und Runners zu verwenden, um Code zu bestimmten Zeitpunkten des Testlebenszyklus ausführen zu können. Z.B. gab es die TemporaryFolder Rule um im Test einen Ordner bereitzustellen, der nach Ausführung des Tests gelöscht wird, um Datenmüll zu vermeiden. Ein anderes Beispiel wäre vielleicht Connection Logik zu einer Datenbank, wenn man im Test immer mit einer leeren Datenbank starten möchte. Diese konnte man dann in eine Rule packen, um nicht in jedem Test mit Datenbank interaktion den Code neu schreiben zu müssen.
+In JUnit 4 gab es die Möglichkeit Rules und Runners zu verwenden, um Code zu bestimmten Zeitpunkten des Testlebenszyklus ausführen zu können, 
+z.B. gab es die TemporaryFolder Rule um im Test einen Ordner bereitzustellen, der nach Ausführung des Tests gelöscht wird, um Datenmüll zu vermeiden. 
+
+Es gab auch die Möglichkeit eigene Runners und Rules zu schreiben. Dies war vor allem dann nützlich, wenn man wiederkehrenden Setup/TearDown Code in mehreren Tests hat, 
+z.B. Logik, die eine Testdatenbank nach jedem Test aufräumt (unabhängig ob dieser Fehlschlägt oder nicht).
 
 Die Runners und Rules aus JUnit 4 wurden in JUnit 5 entfernt und durch Extensions ersetzt.
 
 Eine Extension ist eine Java Klasse, die eines der Interfaces aus org.junit.jupiter.api.extension implementiert.
 
-Sie darf **keinen eigenen State** haben! Man kann aber Objekte in einem von JUnit gemanagtem Store (der im Wesentlichen eine Map<Object, Object> ist und nach beenden des Tests gelöscht wird) ablegen und wieder holen.
+Sie darf **keinen eigenen State** haben! Man kann aber Objekte in einem von JUnit gemanagtem Store (der im Wesentlichen eine Map<Object, Object> ist und nach dem Beenden des Tests gelöscht wird) ablegen und wieder holen.
 
 ## LifeCycle Extensions
 Einige der Extension-Interfaces beeinflussen den Lifecycle eines Tests. Für eine Übersicht der Reihenfolge siehe dieser (und weiterer Annotationen) siehe:
@@ -48,7 +52,7 @@ public class MyExtension implements ParameterResolver {
 	@Override
 	public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext)
 			throws ParameterResolutionException {
-		// return a different int for Each Parameter by using Store to save the nextInt to return
+		// return a different int for Each Parameter by using Store to remember values that were already used
 		Store store = extensionContext.getStore(ExtensionContext.Namespace.create(getClass(), extensionContext));
 
 		@SuppressWarnings("unchecked")
@@ -89,7 +93,7 @@ Man kann auch eigene Annotation in der Extension definieren, um genauere Ausprä
 	@Override
 	public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext)
 			throws ParameterResolutionException {
-		// return a different int for Each Parameter by using Store to save the nextInt to return
+		// return a different int for Each Parameter starting with the value of the GreaterThan annotation or 1 (if no Annotation is there) by using Store to remember values that were already used
 		Store store = extensionContext.getStore(ExtensionContext.Namespace.create(getClass(), extensionContext));
 
 		@SuppressWarnings("unchecked")
