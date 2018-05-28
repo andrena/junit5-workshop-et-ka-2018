@@ -17,8 +17,8 @@ public class LibraryManager {
 	private Map<String, Book> books;
 
 	public LibraryManager(ISBNValidator isbnValidator) {
+		books = new HashMap<>();
 		this.isbnValidator = isbnValidator;
-		init();
 	}
 
 	public LibraryManager() {
