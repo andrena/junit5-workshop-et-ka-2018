@@ -1,4 +1,4 @@
-# Extensions WIP
+# TemporaryFolder Extension
 
 In JUnit 4 gab es die TemporaryFolder Rule. Diese hat methoden wie newFile, newFolder bereitgestellt, über die im Test Verzeichnisse bzw Dateien angelegt werden konnten, die nach Durchlaufen des Tests gelöscht werden.
 
