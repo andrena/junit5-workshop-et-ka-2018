@@ -4,12 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Service;
-
 import library.isbn.ISBNValidator;
 import library.isbn.InvalidISBNException;
 
-@Service
 public class LibraryManager {
 
 	private ISBNValidator isbnValidator;

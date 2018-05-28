@@ -25,8 +25,6 @@ ext.junitPlatformVersion = '1.1.1'
 sourceCompatibility = 1.8
 
 dependencies {
-    implementation "org.springframework.data:spring-data-jpa:2.0.6.RELEASE"
-
     testImplementation "org.assertj:assertj-core:3.8.0"
     testImplementation group: 'de.bechte.junit', name: 'junit-hierarchicalcontextrunner', version: '4.12.1'
     testImplementation group: 'junit', name: 'junit', version: '4.4'
