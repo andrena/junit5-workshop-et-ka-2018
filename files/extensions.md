@@ -5,7 +5,8 @@ In JUnit 4 gab es die Möglichkeit Rules und Runners zu verwenden, um Code zu be
 Die Runners und Rules aus JUnit 4 wurden in JUnit 5 entfernt und durch Extensions ersetzt.
 
 Eine Extension ist eine Java Klasse, die eines der Interfaces aus org.junit.jupiter.api.extension implementiert.
-Sie darf *keinen eigenen State* haben! Man kann aber Objekte in einem von JUnit gemanagtem Store (der im Wesentlichen eine Map<String, Object> ist und nach beenden des Tests gelöscht wird) ablegen und wieder holen.
+
+Sie darf **keinen eigenen State** haben! Man kann aber Objekte in einem von JUnit gemanagtem Store (der im Wesentlichen eine Map<String, Object> ist und nach beenden des Tests gelöscht wird) ablegen und wieder holen.
 
 ## LifeCycle Extensions
 Einige der Extension-Interfaces beeinflussen den Lifecycle eines Tests. Für eine Übersicht der Reihenfolge siehe dieser (und weiterer Annotationen) siehe:
