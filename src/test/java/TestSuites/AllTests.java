@@ -12,11 +12,11 @@ import expectedException.ISBN10Test;
 import expectedException.ISBNValidatorTest;
 import library.RentCalculatorTest;
 import nested.HierarchicalLibraryTest;
-import temporaryFolder.CustomerJunit4Test;
+import temporaryFolder.TemporaryFolderTest;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ BookTest.class, FunReadingTest.class, SpeedReadingTest.class, AnnotationTest.class,
 		ISBN10Test.class, ISBNValidatorTest.class, HamcrestAssertJTest.class, 
-		RentCalculatorTest.class, HierarchicalLibraryTest.class, CustomerJunit4Test.class })
+		RentCalculatorTest.class, HierarchicalLibraryTest.class, TemporaryFolderTest.class })
 public class AllTests {
 }
