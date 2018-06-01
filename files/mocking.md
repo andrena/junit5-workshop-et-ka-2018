@@ -24,6 +24,9 @@ public class MockenTest {
 
 Ab JUnit5 wird dies durch eine Extension (siehe extensions.md) gelöst. Anfangs war MockitoExtension.class eine der Beispiel-Extensions des JUnit-Teams, später wurde sie durch ein allgemeineres Beispiel (RandomParameterExtension.class) ersetzt.
 
+##Tipp:
+Die MockitoExtension implementiert den TestInstancePostProcessor und den ParameterResolver. 
+
 ```
 @ExtendWith(MockitoExtension.class)
 public class MockenTest {
