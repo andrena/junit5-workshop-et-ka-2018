@@ -12,7 +12,7 @@ Dazu könnt ihr die Klasse TemporaryFolder als Hilfestellung nutzen, die im Wese
 ## Aufgabe
 1) Ersetze die ``@Test`` Annotation im ``TemporaryFolderTest`` durch die JUnit5 Variante
 
-2) Ersetze die ``TemporaryFolderRule`` durch eine eigene Extension, die die Interfaces ParameterResolver und AfterTestExecutionCallback implementiert. Der ParameterResolver soll dafür genutzt werden, um im Test eine File, bzw eine Instanz der Klasse ``TemporaryFolder`` (diese Klasse kannst du aus temporaryFolder.md unten herauskopieren) als Parameter übergeben zu können. Im ``ExtensionContext.Store`` kann die Instanz vom Typ TemporaryFolder dann gesichert werden, um sie in der AfterTestExecutionCallback nach Ausführung des Tests löschen zu können.
+2) Ersetze die ``TemporaryFolderRule`` durch eine eigene Extension, die die Interfaces ParameterResolver und AfterTestExecutionCallback implementiert. Der ParameterResolver soll dafür genutzt werden, um im Test eine File, bzw. eine Instanz der Klasse ``TemporaryFolder`` (diese Klasse kannst du aus temporaryFolder.md unten herauskopieren) als Parameter übergeben zu können. Im ``ExtensionContext.Store`` kann die Instanz vom Typ TemporaryFolder dann gesichert werden, um sie in der AfterTestExecutionCallback nach Ausführung des Tests löschen zu können.
 
 ## Für die Übung relevante Extensions
 | Interface | Description |
