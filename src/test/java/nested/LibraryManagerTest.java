@@ -10,7 +10,7 @@ import library.Book;
 import library.BookState;
 import library.LibraryManager;
 
-public class RegularLibraryManagerTest {
+public class LibraryManagerTest {
 
 	private final Book junit = new Book("3-86680-192-0", "Junit Jupiter");
 	private final Book java = new Book("3-598-21500-2", "Java für Anfänger");
