@@ -19,4 +19,9 @@ public class TimeoutAnnotation {
 		service.findAll();
 	}
 
+	@Test(timeout = 5000)
+	public void testTimeout2() throws InterruptedException {
+		service.findAll();
+	}
+
 }
