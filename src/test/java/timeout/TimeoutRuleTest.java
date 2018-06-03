@@ -1,13 +1,18 @@
 package timeout;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.Timeout;
 
+import library.Book;
 import library.BookService;
 
-public class TimeoutRule {
+public class TimeoutRuleTest {
 
 	private BookService service;
 
@@ -21,7 +26,9 @@ public class TimeoutRule {
 
 	@Test
 	public void testTimeout() throws InterruptedException {
-		service.findAll();
+		List<Book> all = service.findAll();
+
+		assertEquals(0, all.size());
 	}
 
 }
