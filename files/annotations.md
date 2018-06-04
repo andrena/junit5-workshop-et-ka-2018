@@ -41,3 +41,7 @@ Für diese Aufgabe bearbeiten wir das annoatationen Package
 # Lösung
 
 Darfst du vorstellen ;P
+
+# Hinweis
+Ein geschicktes vorgehen ist es die JUnit4 Imports am Dateianfang zu löschen und dann die dadurch enstehenden Fehler zu lösen.
+Bei der @Test Annoation muss z.B. nur der Richtige Import gewählt werden.
