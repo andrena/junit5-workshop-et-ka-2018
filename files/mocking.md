@@ -50,4 +50,8 @@ public class MockenTest {
 ## Hinweis: 
 https://github.com/junit-team/junit5-samples/blob/026a9d9abe06b6173398c1a2518793259cd190f2/junit5-mockito-extension/src/main/java/com/example/mockito/MockitoExtension.java
 
+## Aufgabe
+Stelle den [MockenTest](src\test\java\mockenOhneMockitoRunner\MockenTest.java) auf die Verwendung einer MockingExtension um.
 
+## Lösung
+siehe Hinweis Link

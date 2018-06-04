@@ -37,7 +37,7 @@ TODO
 	* [Exception Testing assertThrows vs ExpectedException](files/expectedException.md) (Johannes)
 	* [Eigene Extension](files/extensions.md) (Dirk)
 		* ?
-	* [AssertTimeout und Futures](files/timeoutAndFutures.md) (Felix)
+	* [AssertTimeout und Futures](files/timeout.md) (Felix)
 	* [Parametrized Tests](files/parametrizedTests.md) (Felix)
 	*
 * Pro Punkt von Oben >=1 Folie erstellen!

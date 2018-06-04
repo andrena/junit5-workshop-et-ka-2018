@@ -1,6 +1,6 @@
-# Nested Tests WIP
+# Nested Tests
 
-Es gibt immer wieder Test-Setups die aufeinander aufbauen. Unser Library-Manager beispielsweise hat verschiedene Zustände (keine Bücher, alle vorhanden, einige ausgeliehen). Um all diese zu testen gibt verschiedene Möglichkeiten:
+Es gibt immer wieder Test-Setups die aufeinander aufbauen. Unser Library-Manager beispielsweise hat verschiedene Zustände (keine Bücher, alle vorhanden, einige ausgeliehen). Um all diese zu Testen gibt verschiedene Möglichkeiten:
 
 - Für jeden Zustand eine eigene Testklasse (kann setup-Code duplizieren)
 - Helper-Methoden, die vor jedem Test den gewünschten Zustand herstellen.

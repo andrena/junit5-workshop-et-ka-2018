@@ -42,6 +42,8 @@ void palindromes(String candidate) {
 }
 ```
 
+TODO 2 Parameter Csv
+
 ## Aufgabe
 
 1) Schreibe den ``RentCalculatorTest`` so um, dass er die Junit5 Syntax verwendet.
