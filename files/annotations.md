@@ -8,19 +8,19 @@ gefunden werden.
 
 Hier werden lediglich für die Übung verwendete Annotationen aufgelistet.
 
-| Annotation | Description|
-| ---------- |:----------:|
-| @Test | Markiert Test Methoden. Im Gegensatz zu JUnit 4 können darauf keine Eigenschafen deklariert werden. |
-| @BeforeEach | ersetzt @Before von JUnit 4 |
-| @AfterEach | ersetzt @After von JUnit 4      |
-| @BeforeAll | ersetzt @BeforeClass von JUnit 4 |
-| @AfterAll | ersetzt @AfterClass von JUnit 4 |
-| @DisplayName | setzt einen Anzeigenamen dabei können beliebige ASCII Zeichen verwendet werden |
-| @Tag | ermöglicht das Angeben von Tags, nach denen gefiltert werden kann |
-| @ExtendWith | wird zur Registrierung einer Extension verwendet. |
-| @Disabled | ersetzt @Ignored von JUnit 4 |
+| JUnit 4 | JUnit 5 | Beschreibung |
+| ---------- |:----------:|:----------:|
+| @Test | @Test | Markiert Test Methoden. |
+| @Before | @BeforeEach | wird vor jeder Testmethode ausgeführt |
+| @After | @AfterEach | wird nach jeder Testmethode ausgeführt |
+| @BeforeClass| @BeforeAll | wird vor der Testklasse ausgeführt |
+| @AfterClass | @AfterAll | wird nach der Testklasse ausgeführt |
+| -- |@DisplayName | setzt einen Anzeigenamen, dabei können beliebige ASCII Zeichen verwendet werden |
+| -- |@Tag | ermöglicht das Angeben von Tags, nach denen gefiltert werden kann |
+| -- |@ExtendWith | wird zur Registrierung einer Extension verwendet. |
+| @Ignore |@Disabled | Test wird nicht ausgeführt |
 
-## Eigene Annoationen
+## Meta-Annoationen
 
 Es können auch eigene Meta-Annotationen geschrieben werden.
 
@@ -32,3 +32,12 @@ Hier ein Beispiel aus dem JUnit5 User Guide für eine `@Fast` Annotation.
 public @interface Fast {
 }
 ```
+
+# Aufgabe
+Dies ist ab jetzt in jeder Aufgabe relevant. Ersetze die JUnit 4 Annotations durch JUnit 5 Annotations.
+
+Für diese Aufgabe bearbeiten wir das annoatationen Package
+
+# Lösung
+
+Darfst du vorstellen ;P

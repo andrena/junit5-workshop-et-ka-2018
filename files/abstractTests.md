@@ -1,9 +1,9 @@
 # Abstract Tests
 
-Abstract Test werden dazu genutzt um gleichbleibende Eigenschaften Mehrer Klassen zu testen.
+Abstract Test werden dazu genutzt um gleichbleibende Eigenschaften mehrer Klassen zu testen.
 Ein Beispiel hierfür sind Validatoren. Egal welcher Validator angesprochen wird, sein Verhalten nach außen sollte gleich bleiben.
 
-Contracts bieten die gleiche Funktion wie Abstract Tests. Jedoch nutzen diese die Java 8 default Interface Methoden.
+In JUnit 5 werden diese Tests als Contracts bezeichnet. Sie bieten die gleiche Funktion wie Abstract Tests. Jedoch nutzen diese die Java 8 default Interface Methoden.
 
 ```java
     public interface ValidatiorContract<T, V> {
