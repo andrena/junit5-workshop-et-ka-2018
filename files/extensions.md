@@ -1,9 +1,9 @@
-# Extensions WIP
+# Extensions
 
-In JUnit 4 gab es die Möglichkeit Rules und Runners zu verwenden, um Code zu bestimmten Zeitpunkten des Testlebenszyklus ausführen zu können, 
-z.B. gab es die TemporaryFolder Rule um im Test einen Ordner bereitzustellen, der nach Ausführung des Tests gelöscht wird, um Datenmüll zu vermeiden. 
+In JUnit 4 gab es die Möglichkeit Rules und Runners zu verwenden, um Code zu bestimmten Zeitpunkten des Testlebenszyklus ausführen zu können,
+z.B. gab es die TemporaryFolder Rule um im Test einen Ordner bereitzustellen, der nach Ausführung des Tests gelöscht wird, um Datenmüll zu vermeiden.
 
-Es gab auch die Möglichkeit eigene Runners und Rules zu schreiben. Dies war vor allem dann nützlich, wenn man wiederkehrenden Setup/TearDown Code in mehreren Tests hat, 
+Es gab auch die Möglichkeit eigene Runners und Rules zu schreiben. Dies war vor allem dann nützlich, wenn man wiederkehrenden Setup/TearDown Code in mehreren Tests hat,
 z.B. Logik, die eine Testdatenbank nach jedem Test aufräumt (unabhängig ob dieser Fehlschlägt oder nicht).
 
 Die Runners und Rules aus JUnit 4 wurden in JUnit 5 entfernt und durch Extensions ersetzt.
@@ -22,12 +22,48 @@ Weitere Informationen zu Extensions findet ihr u.a. [hier](https://junit.org/jun
 
 ## Einbinden von Extensions
 
-Für Runners gab es ``@RunWith(MyRunner.class)`` auf Klassenebene, für Rules gab es ``@Rule`` auf Feldebene. Beide Annotationen gibt es mit JUnit5 nicht mehr. Stattdessen kann man mittels ``@ExtendWith(MyExtension.class)`` auf Klassen- oder Methodenebene die Extension für die Testklasse/Testmethode aktivieren. Mann kann auch mehrere Extensions als Array übergeben ``@ExtendWith({MyExtension1.class, MyExtension2.class})``. 
-Alternativ kann man eine Extension auch auf Feldebene mittels ``@RegisterExtension`` einbinden. 
+Für Runners gab es ``@RunWith(MyRunner.class)`` auf Klassenebene, für Rules gab es ``@Rule`` auf Feldebene. Beide Annotationen gibt es mit JUnit5 nicht mehr. Stattdessen kann man mittels ``@ExtendWith(MyExtension.class)`` auf Klassen- oder Methodenebene die Extension für die Testklasse/Testmethode aktivieren. Mann kann auch mehrere Extensions als Array übergeben ``@ExtendWith({MyExtension1.class, MyExtension2.class})``.
+Alternativ kann man eine Extension auch auf Feldebene mittels ``@RegisterExtension`` einbinden.
 
 Die Wahl der Einbindung hat einen Einfluss auf die Reihenfolge, wann welche Extension geladen wird.
 
 Für weitere Informationen siehe auch den [JUnit5 User Guide](https://junit.org/junit5/docs/current/user-guide/#extensions-registration).
+
+## Aufgabe
+1) Die Klasse CustomExtensionTest hat keine Abhängigkeit zu JUnit4 mehr, d.h. die Annotationen @Before und @Test wurden auf das JUnit5 Äquivalent migriert.
+
+2) Im Test werden aktuell drei Konstanten für Variablen vom Typ Book genutzt. Diese sollen im Zuge dieser Übung entfernt werden. Stattdessen soll eine neue Extension erstellt werden, die das Interface ParameterResolver implementiert. Die im Test benötigten Instanzen vom Typ Book sollen dann über Parameter an die Testmethode übergeben werden, z.B.:
+
+```
+@ExtendWith(NewExtension.class)
+public class CustomExtensionTest {
+	@Test
+	void someTestMethod(Book someBook, Book anotherBook) {
+		...
+	}
+	...
+}
+```
+
+### Bonusaufgabe
+Erstelle eine eigene Annotation ``Rent``, die an die Parameter der Testmethode gesetzt werden kann. Die neue Extension aus Aufgabe 2) soll dann den BookState des zurückgegebenen Buches direkt auf ``BookState.RENT`` setzen, damit in der Testmethode ``notAllBooksAvailable`` nicht mehr ``underTest.rentBook(...)`` aufgerufen werden muss:
+
+```
+@ExtendWith(NewExtension.class)
+public class CustomExtensionTest {
+	@Test
+	void notAllBooksAvailable(Book someBook, Book anotherBook, @Rent Book unAvailableBook) {
+		addAllBooksToLibrary(someBook, anotherBook, unAvailableBook);
+
+		assertEquals(2, underTest.availableBookCount());
+	}
+	...
+}
+```
+
+
+
+
 
 
 
@@ -67,7 +103,7 @@ public class MyExtension implements ParameterResolver {
 
 		@SuppressWarnings("unchecked")
 		List<Integer> alreadyUsed = store.getOrComputeIfAbsent("alreadyUsedIntegers", key->new ArrayList<Integer>(), List.class);
-		
+
 		int currentInt= 1;
 		while(alreadyUsed.contains(Integer.valueOf(currentInt))) {
 			currentInt++;
@@ -99,7 +135,7 @@ Man kann auch eigene Annotation in der Extension definieren, um genauere Ausprä
 	public @interface GreaterThan {
 		int value();
 	}
-	
+
 	@Override
 	public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext)
 			throws ParameterResolutionException {
@@ -108,7 +144,7 @@ Man kann auch eigene Annotation in der Extension definieren, um genauere Ausprä
 
 		@SuppressWarnings("unchecked")
 		List<Integer> alreadyUsed = store.getOrComputeIfAbsent("alreadyUsedIntegers", key->new ArrayList<Integer>(), List.class);
-		
+
 		int currentInt= parameterContext.findAnnotation(GreaterThan.class).map(greaterThan->greaterThan.value()+1).orElseGet(()->1);
 		while(alreadyUsed.contains(Integer.valueOf(currentInt))) {
 			currentInt++;
@@ -129,3 +165,7 @@ Im Test sieht das dann so aus:
 		assertThat(c).isGreaterThan(10);
 	}
 ```
+
+## Weiterführender Link
+
+Im github Projekt [junit-pioneer](https://github.com/junit-pioneer/junit-pioneer/) werden von der Community Ideen zu Extensions diskutiert und implementiert.  

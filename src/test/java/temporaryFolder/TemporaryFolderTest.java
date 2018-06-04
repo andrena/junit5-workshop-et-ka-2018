@@ -16,7 +16,7 @@ import library.Book;
 import library.Customer;
 import library.CustomerFee;
 
-public class CustomerJunit4Test {
+public class TemporaryFolderTest {
 
 	@Rule
 	public TemporaryFolder temporaryFolder = new TemporaryFolder();

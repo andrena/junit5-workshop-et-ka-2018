@@ -1,4 +1,4 @@
-# Extensions WIP
+# TemporaryFolder Extension
 
 In JUnit 4 gab es die TemporaryFolder Rule. Diese hat methoden wie newFile, newFolder bereitgestellt, über die im Test Verzeichnisse bzw Dateien angelegt werden konnten, die nach Durchlaufen des Tests gelöscht werden.
 
@@ -8,6 +8,11 @@ Für JUnit 5 gibt es stand heute noch keine solche Extension, es gibt aber berei
 Da das ganze aber eine gute Übung und auch nicht sehr kompliziert ist, ist die nächste Aufgabe diese Rule als Extension selbst zu implementieren.
 
 Dazu könnt ihr die Klasse TemporaryFolder als Hilfestellung nutzen, die im Wesentlichen die Methoden aus der JUnit4 Rule nach implementiert und die ihr in eurer neuen Extension benutzen könnt.
+
+## Aufgabe
+1) Ersetze die ``@Test`` Annotation im ``TemporaryFolderTest`` durch die JUnit5 Variante
+
+2) Ersetze die ``TemporaryFolderRule`` durch eine eigene Extension, die die Interfaces ParameterResolver und AfterTestExecutionCallback implementiert. Der ParameterResolver soll dafür genutzt werden, um im Test eine File, bzw. eine Instanz der Klasse ``TemporaryFolder`` (diese Klasse kannst du aus temporaryFolder.md unten herauskopieren) als Parameter übergeben zu können. Im ``ExtensionContext.Store`` kann die Instanz vom Typ TemporaryFolder dann gesichert werden, um sie in der AfterTestExecutionCallback nach Ausführung des Tests löschen zu können.
 
 ## Für die Übung relevante Extensions
 | Interface | Description |
@@ -45,7 +50,7 @@ public class TemporaryFolder {
 		}
 		file.delete();
 	}
-	
+
 	public File newFile(String fileName) throws IOException {
 		File file = new File(getRoot(), fileName);
 		if (!file.createNewFile()) {
@@ -61,7 +66,7 @@ public class TemporaryFolder {
 	public File newFolder() throws IOException {
 		return createTemporaryFolder(getRoot());
 	}
-	
+
 	private File getRoot() throws IOException {
 		if (root == null) {
 			root = createTemporaryFolder(null);
