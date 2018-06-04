@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-# Parametrisierte Tests WIP
+# Parametrisierte Tests
 
 In Junit 4 können mit dem ``ParamterizedRunner`` alle Methoden einer Testsklasse für verschiedene Sets an Input-Daten ausgeführt werden.
 
