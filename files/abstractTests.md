@@ -19,3 +19,32 @@ Contracts bieten die gleiche Funktion wie Abstract Tests. Jedoch nutzen diese di
         
     }
 ```
+
+# Aufgabe
+
+In den Dateien
+[ReadingMethodTest](../src/test/java/abstractTests/ReadingMethodTest.java) und 
+[BookPropertiesTest](../src/test/java/abstractTests/BookPropertiesTest.java)
+sind in JUnit 4 verfasste abstrakte Tests.
+
+Diese Test sollen nun mit den vorgestellten Technologien angepasst und durchgeführt werden.
+
+
+# Bsp.: Lösung
+```java
+interface ReadingMethodTest {
+    
+    Progression readTest(Book book, int timeUnits);
+    
+    @Test
+    default void testReadingTransfersKnowledge {
+        ...
+    }
+}
+
+class FunReadingTest implements ReadingMethodTest {
+    
+    @Override
+    ...
+}
+```

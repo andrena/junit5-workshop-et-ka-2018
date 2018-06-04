@@ -10,3 +10,10 @@ Des Weiteren wird die geworfene Exception zurückgeliefert und kann noch genauer 
 Throwable exception = assertThrows(Exception.class, ()-> functionCall(...));
 assertThat(exception.getMessage).isEqualTo(...);
 ```
+
+# Aufgabe
+Wir habe im Packet excpectedException zweit Test Klassen die verschiedene Möglichkeiten Zeigen in JUnit 4 Exceptions zu fangen.
+Diese Klassen sollen nun auf JUnit 5 umgestellt werden.
+
+# Bsp.: Lösung
+Mit JUnit 5 hat die @Test Annotation keine Properties mehr. Daher wird hier für beide Arten die Exception mit `assertThrows` gefangen.
