@@ -17,12 +17,13 @@ public class TimeoutRuleTest {
 	private BookService service;
 
 	@Before
-	public void setUp() {
+	public void setUp() throws InterruptedException {
+		Thread.sleep(1000);
 		service = new BookService();
 	}
 	
 	@Rule
-	public Timeout timeout = Timeout.seconds(2);
+	public Timeout timeout = Timeout.seconds(3);
 
 	@Test
 	public void testTimeout() throws InterruptedException {

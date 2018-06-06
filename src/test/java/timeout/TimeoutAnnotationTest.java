@@ -15,11 +15,12 @@ public class TimeoutAnnotationTest {
 	private BookService service;
 
 	@Before
-	public void setUp() {
+	public void setUp() throws InterruptedException {
+		Thread.sleep(1000);
 		service = new BookService();
 	}
 
-	@Test(timeout = 2000)
+	@Test(timeout = 3000)
 	public void testTimeout() throws InterruptedException {
 		List<Book> all = service.findAll();
 		assertEquals(0, all.size());
