@@ -9,8 +9,9 @@ import static org.mockito.Mockito.when;
 import java.util.Arrays;
 
 import org.assertj.core.api.Assertions;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import library.Book;
 import library.BookState;
@@ -18,17 +19,14 @@ import library.LibraryManager;
 import library.isbn.ISBNValidator;
 import library.isbn.InvalidISBNException;
 
+@ExtendWith(BookExtension.class)
 public class CustomExtensionTest {
-
-	private final Book junitBook = new Book("ABC123", "Junit Jupiter");
-	private final Book javaBook = new Book("456QB", "Java für Anfänger");
-	private final Book scrumBook = new Book("DJEW123", "ScrumGuide");
 
 	private ISBNValidator validatorMock = mock(ISBNValidator.class);
 
 	private LibraryManager underTest = new LibraryManager(validatorMock);
 
-	@Before
+	@BeforeEach
 	public void setUp() throws InvalidISBNException {
 		when(validatorMock.validate(anyString())).thenReturn(true);
 	}
@@ -39,14 +37,14 @@ public class CustomExtensionTest {
 	}
 
 	@Test
-	public void containsBooks() {
+	public void containsBooks(Book junitBook, Book javaBook) {
 		addAllBooksToLibrary(junitBook, javaBook);
 
 		Assertions.assertThat(underTest.getBooks().values()).containsExactlyInAnyOrder(junitBook, javaBook);
 	}
 
 	@Test
-	public void canRentBook() {
+	public void canRentBook(Book junitBook, Book javaBook) {
 		addAllBooksToLibrary(junitBook, javaBook);
 
 		assertTrue(underTest.rentBook(junitBook));
@@ -54,7 +52,7 @@ public class CustomExtensionTest {
 	}
 
 	@Test
-	public void notAllBooksAvailable() {
+	public void notAllBooksAvailable(Book junitBook, Book javaBook, Book scrumBook) {
 		addAllBooksToLibrary(junitBook, javaBook, scrumBook);
 		underTest.rentBook(junitBook);
 
