@@ -1,20 +1,18 @@
 # Abstract Tests
 
 Abstract Test werden dazu genutzt um gleichbleibende Eigenschaften mehrer Klassen zu testen.
-Ein Beispiel hierfür sind Validatoren. Egal welcher Validator angesprochen wird, sein Verhalten nach außen sollte gleich bleiben.
 
 In JUnit 5 werden diese Tests als Contracts bezeichnet. Sie bieten die gleiche Funktion wie Abstract Tests. Jedoch nutzen diese die Java 8 default Interface Methoden.
 
 ```java
-    public interface ValidatiorContract<T, V> {
+    public interface Contract<T> {
     
-        T createValidator();
-        V getValidValue();
+        T createValue();
         
         @Test
-        default void testValidation(){
-            T validator = createValidator();
-            assertThat(validator.validate(getValidValue())).isTrue();
+        default void testValue(){
+            T value = createValue();
+            assertThat(value).isEqualTo(expectedValue);
         }
         
     }
@@ -27,24 +25,35 @@ In den Dateien
 [BookPropertiesTest](../src/test/java/abstractTests/BookPropertiesTest.java)
 sind in JUnit 4 verfasste abstrakte Tests.
 
-Diese Test sollen nun mit den vorgestellten Technologien angepasst und durchgeführt werden.
+Diese Test sollen nun von abstracten Test Klassen in Test Interfaces umgewandelt werden.
 
 
 # Bsp.: Lösung
 ```java
-interface ReadingMethodTest {
-    
-    Progression readTest(Book book, int timeUnits);
-    
-    @Test
-    default void testReadingTransfersKnowledge {
-        ...
-    }
-}
+public interface EqualsContract<T>{
 
-class FunReadingTest implements ReadingMethodTest {
-    
-    @Override
-    ...
+    T createValue();
+    T createNotEqualValue();
+
+    @Test
+    default void valueEqualsItself() {
+        T value = createValue();
+        assertEquals(value, value);
+    }
+
+    @Test
+    default void valueDoesNotEqualNull() {
+        T value = createValue();
+        assertFalse(value.equals(null));
+    }
+
+    @Test
+    default void valueDoesNotEqualDifferentValue() {
+        T value = createValue();
+        T differentValue = createNotEqualValue();
+        assertNotEquals(value, differentValue);
+        assertNotEquals(differentValue, value);
+    }
+
 }
 ```

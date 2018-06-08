@@ -18,5 +18,5 @@ import temporaryFolder.TemporaryFolderTest;
 @Suite.SuiteClasses({ BookTest.class, FunReadingTest.class, SpeedReadingTest.class, AnnotationTest.class,
 		ISBN10Test.class, ISBNValidatorTest.class, HamcrestAssertJTest.class, 
 		RentCalculatorTest.class, HierarchicalLibraryTest.class, TemporaryFolderTest.class })
-public class AllTests {
+public class BasicTestSuite {
 }
