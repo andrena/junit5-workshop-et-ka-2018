@@ -19,32 +19,11 @@ Dann können die Suites wie folgt aussehen.
 @SelectPackages({"expectedException"})
 @IncludeTags({"short","long"})
 public class TestSuite{
-    
 }
 ```
 
-Um Suites in JUnit 5 zu verwenden muss derzeit noch der `vintage Runner`
-von `junit-platform-runner` ausgenommen werden.
-
-```groovy
-testCompile('org.junit.platform:junit-platform-runner:1.2.0') {
-    exclude group: 'junit', module: 'junit' 
-}
-```  
-
-```java
-@Suite
-@IncludeClassNamePatterns("**/*JmqITs")   
-public class RequiresJmqSuite {
-	
-	@BeforeSuite
-	void setUpJmqConnection() { ... }
-	
-	@AfterSuite
-	void tearDownJmqConnection() { ... }
-
-}
-```
+Die Suites Umsetzung von JUnit 5 ist derzeit noch nicht vollständig.
+Der Fortschritt kann unter [JUnit 5 Repository: Issues - Suites](https://github.com/junit-team/junit5/labels/theme%3A%20suites) betrachtet werden.
 
 # Aufgabe
 Das Packet Testsuites enthält zwei Testsuites einmal BasicTestSuite und LongRunningTests.
@@ -55,19 +34,10 @@ Das Packet Testsuites enthält zwei Testsuites einmal BasicTestSuite und LongRunn
 # Lösung
 
 ```java
-@Suite
-@IncludeClassNamePatterns("**/*JmqITs")
-@SuiteDisplayName("Sammlung kleiner Tests")
+@RunWith(JUnitPlatform.class)
 @SelectClasses({RentCalculatorJunit4Test.class})
 @SelectPackages({"expectedException"})
 @IncludeTags({"short","long"})
 public class RequiresJmqSuite {
-	
-	@BeforeSuite
-	void setUpJmqConnection() { ... }
-	
-	@AfterSuite
-	void tearDownJmqConnection() { ... }
-
 }
 ```
