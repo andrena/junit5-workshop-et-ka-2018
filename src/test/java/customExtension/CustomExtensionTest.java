@@ -13,6 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import customExtension.BookExtension.Rent;
 import library.Book;
 import library.BookState;
 import library.LibraryManager;
@@ -52,9 +53,8 @@ public class CustomExtensionTest {
 	}
 
 	@Test
-	public void notAllBooksAvailable(Book junitBook, Book javaBook, Book scrumBook) {
+	public void notAllBooksAvailable(@Rent Book junitBook, Book javaBook, Book scrumBook) {
 		addAllBooksToLibrary(junitBook, javaBook, scrumBook);
-		underTest.rentBook(junitBook);
 
 		assertEquals(2, underTest.availableBookCount());
 	}

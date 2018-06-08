@@ -1,7 +1,13 @@
 package customExtension;
 
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ExtensionContext.Store;
@@ -10,8 +16,14 @@ import org.junit.jupiter.api.extension.ParameterResolutionException;
 import org.junit.jupiter.api.extension.ParameterResolver;
 
 import library.Book;
+import library.BookState;
 
 public class BookExtension implements ParameterResolver {
+	@Target({ ElementType.TYPE, ElementType.PARAMETER })
+	@Retention(RetentionPolicy.RUNTIME)
+	@Documented
+	public @interface Rent {
+	}
 
 	@Override
 	public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext)
@@ -35,7 +47,14 @@ public class BookExtension implements ParameterResolver {
 			isbn = Integer.toString(i);
 		}
 		alreadyUsed.add(isbn);
-		return new Book(isbn, "someTitle-" + i);
+
+		Book book = new Book(isbn, "someTitle-" + i);
+		Optional<Rent> rentAnnotation = parameterContext.findAnnotation(Rent.class);
+		if (rentAnnotation.isPresent()) {
+			book.setState(BookState.RENT);
+		}
+
+		return book;
 	}
 
 }
