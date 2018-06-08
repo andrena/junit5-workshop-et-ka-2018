@@ -26,10 +26,4 @@ public class TimeoutAnnotationTest {
 		assertEquals(0, all.size());
 	}
 
-	@Test(timeout = 5000)
-	public void testTimeout2() throws InterruptedException {
-		List<Book> all = service.findAll();
-		assertEquals(0, all.size());
-	}
-
 }

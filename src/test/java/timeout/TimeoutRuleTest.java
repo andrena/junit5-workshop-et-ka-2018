@@ -28,7 +28,6 @@ public class TimeoutRuleTest {
 	@Test
 	public void testTimeout() throws InterruptedException {
 		List<Book> all = service.findAll();
-
 		assertEquals(0, all.size());
 	}
 
