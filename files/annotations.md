@@ -1,12 +1,12 @@
 # Annotationen WIP
 
-Die Annotationen von JUnit 4 zu 5 unterscheiden sich leicht Beispielsweiße wird `@Before` zu `@BeforeEach`
+Die Annotationen von JUnit 4 zu 5 unterscheiden sich leicht, beispielsweise wird `@Before` zu `@BeforeEach`
 
 Eine Liste Annotationen von kann im 
 [JUnit 5 Userguide](https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations)
 gefunden werden.
 
-Hier werden lediglich für die Übung verwendete Annotationen aufgelistet.
+Hier ein kleiner Auszug der wichtigsten Annotationen:
 
 | JUnit 4 | JUnit 5 | Beschreibung |
 | ---------- |:----------:|:----------:|
@@ -15,10 +15,15 @@ Hier werden lediglich für die Übung verwendete Annotationen aufgelistet.
 | @After | @AfterEach | wird nach jeder Testmethode ausgeführt |
 | @BeforeClass| @BeforeAll | wird vor der Testklasse ausgeführt |
 | @AfterClass | @AfterAll | wird nach der Testklasse ausgeführt |
-| -- |@DisplayName | setzt einen Anzeigenamen, dabei können beliebige ASCII Zeichen verwendet werden |
-| -- |@Tag | ermöglicht das Angeben von Tags, nach denen gefiltert werden kann |
-| -- |@ExtendWith | wird zur Registrierung einer Extension verwendet. |
 | @Ignore |@Disabled | Test wird nicht ausgeführt |
+
+Diese Annotationen sind u.a. neu dazu gekommen mit JUnit5:
+
+| Name | Beschreibung |
+| ---------- |:----------:|
+| @DisplayName | setzt einen Anzeigenamen, dabei können beliebige ASCII Zeichen verwendet werden |
+| @Tag | ermöglicht das Angeben von Tags, nach denen gefiltert werden kann |
+| @RepeatedTest | wird anstatt der @Test Annotation genutzt, um den Test wiederholt auszuführen. Es muss ein Parameter "value=n" gesetzt werden, wobei n die Anzahl der wiederholungen ist |
 
 ## Meta-Annoationen
 
@@ -33,15 +38,16 @@ public @interface Fast {
 }
 ```
 
-# Aufgabe
-Dies ist ab jetzt in jeder Aufgabe relevant. Ersetze die JUnit 4 Annotations durch JUnit 5 Annotations.
+# Aufgabe (beachte hierbei die Testnamen)
+1) Dies ist ab jetzt in jeder Aufgabe relevant. Ersetze die JUnit 4 Annotations durch JUnit 5 Annotations. 
+Wenn du fertig bist darf es im ``AnnotationenTest`` keinen import aus JUnit4 mehr geben.
 
-Für diese Aufgabe bearbeiten wir das annoatationen Package
+2) Probiere die neuen Annotationen in JUnit5 aus (siehe dazu die Tabelle oben). 
 
-# Lösung
-
-Darfst du vorstellen ;P
+Für diese Aufgabe bearbeiten wir das annotationen Package
 
 # Hinweis
 Ein geschicktes vorgehen ist es die JUnit4 Imports am Dateianfang zu löschen und dann die dadurch enstehenden Fehler zu lösen.
 Bei der @Test Annoation muss z.B. nur der Richtige Import gewählt werden.
+
+Die RepeatRule und @Repeated Annotation kannst du durch @RepeatedTest ersetzen.
