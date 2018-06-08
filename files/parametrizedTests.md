@@ -40,6 +40,12 @@ Es gibt verschiedene Annotations um Parameter zu übergeben, z.B. ``@CsvSource``
 void palindromes(String candidate) {
     assertTrue(isPalindrome(candidate));
 }
+
+@ParameterizedTest
+@CsvSource(strings = { "racecar, racecar", "radar, Radar", "teest, test" })
+void stringAreEqual(String candidate, String expected) {
+    assertEquals(expected, candidate);
+}
 ```
 
 TODO 2 Parameter Csv
