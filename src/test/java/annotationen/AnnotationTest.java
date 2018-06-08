@@ -5,10 +5,11 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 
 import library.Book;
 import library.CustomerFee;
@@ -28,17 +29,13 @@ public class AnnotationTest {
 	private int index = 0;
 	private int bookCount = 4;
 
-	@Rule
-	public RepeatRule repeatRule = new RepeatRule();
-
-	@Before
+	@BeforeEach
 	public void setup() {
 		booksToRent = asList(book, book1, book2, book3, book4);
 		libraryManager = new LibraryManager(booksToRent);
 	}
 
-	@Test
-	@Repeat(times = 5)
+	@RepeatedTest(value = 5)
 	public void testRepeat() throws Exception {
 		libraryManager.rentBook(booksToRent.get(index++));
 
@@ -48,6 +45,7 @@ public class AnnotationTest {
 	}
 
 	@Test
+	@DisplayName("Ein besserer Name")
 	public void testDieserNameIstMist() throws Exception {
 		RentCalculator rentCalculator = new RentCalculator();
 
@@ -57,7 +55,7 @@ public class AnnotationTest {
 	}
 
 	@Test
-	@Ignore
+	@Disabled
 	public void ignore() throws Exception {
 		RentCalculator rentCalculator = new RentCalculator();
 
