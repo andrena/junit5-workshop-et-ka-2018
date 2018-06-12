@@ -1,4 +1,4 @@
-# Annotationen WIP
+# Annotationen
 
 Die Annotationen von JUnit 4 zu 5 unterscheiden sich leicht, beispielsweise wird `@Before` zu `@BeforeEach`
 
@@ -38,16 +38,14 @@ public @interface Fast {
 }
 ```
 
-# Aufgabe (beachte hierbei die Testnamen)
-1) Dies ist ab jetzt in jeder Aufgabe relevant. Ersetze die JUnit 4 Annotations durch JUnit 5 Annotations. 
-Wenn du fertig bist darf es im ``AnnotationenTest`` keinen import aus JUnit4 mehr geben.
+# Aufgabe (beachte die Namen der Tests)
+[AnnotationTest](../src/test/java/annotationen/AnnotationTest.java)
+1) Stelle die folgende JUnit 4 Annotationen auf JUnit 5 um: @Before, @Ignore
+2) Baue die RepeatRule aus
+3) Ändere den Namen eines Tests
 
-2) Probiere die neuen Annotationen in JUnit5 aus (siehe dazu die Tabelle oben). 
+## Tipp
+Lösche zuerst die JUnit 4 Imports und löse die dadurch entstandenen Fehler.
 
-Für diese Aufgabe bearbeiten wir das annotationen Package
-
-# Hinweis
-Ein geschicktes vorgehen ist es die JUnit4 Imports am Dateianfang zu löschen und dann die dadurch enstehenden Fehler zu lösen.
-Bei der @Test Annoation muss z.B. nur der Richtige Import gewählt werden.
-
-Die RepeatRule und @Repeated Annotation kannst du durch @RepeatedTest ersetzen.
+## Hinweis
+Bei den folgenden Aufgaben sind immer zuerst die Abhängigkeiten zu JUnit 4 zu eliminieren, d.h. die Annotationen wie z.B. @Before und @Test müssen auf das JUnit 5 Äquivalent migriert werden.

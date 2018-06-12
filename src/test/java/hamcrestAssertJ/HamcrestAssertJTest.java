@@ -1,4 +1,4 @@
-package HamcrestAssertJ;
+package hamcrestAssertJ;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.is;

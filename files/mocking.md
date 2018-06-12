@@ -6,19 +6,22 @@ Früher wurde der MockitoJUnitRunner benutzt, um Klassen zu mocken:
 @RunWith(MockitoJUnitRunner.class)
 public class MockenTest {
      @Mock
-      private MockKlasse mocked;
+     private MockKlasse1 mocked1;
+     @Mock
+     private MockKlasse2 mocked2;
 
-      private TestKlasse underTest;
+     private TestKlasse underTest;
 
      @Before
-      public void setUp(){
-             when(mocked.call()).thenReturn(true);
-      }
+     public void setUp(){
+       when(mocked1.call()).thenReturn(true);
+       when(mocked2.call()).thenReturn(false);
+     }
 
      @Test
-      public void test() {
-              undertest.machIrgendwas(mocked);
-      }
+     public void test() {
+              
+     }
 }
 ```
 
@@ -51,7 +54,9 @@ public class MockenTest {
 https://github.com/junit-team/junit5-samples/blob/026a9d9abe06b6173398c1a2518793259cd190f2/junit5-mockito-extension/src/main/java/com/example/mockito/MockitoExtension.java
 
 ## Aufgabe
-Stelle den [MockenTest](src\test\java\mockenOhneMockitoRunner\MockenTest.java) auf die Verwendung einer MockingExtension um.
+[MockenTest](src\test\java\mockenOhneMockitoRunner\MockenTest.java):
+1) MockitoExtension schreiben (oder Beispiel-Extension von JUnit)
+2) Extension verwenden
 
 ## Lösung
 siehe Hinweis Link

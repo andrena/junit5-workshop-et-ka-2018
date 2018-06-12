@@ -1,17 +1,26 @@
 # Hamcrest und AssertJ
 
-Mit JUnit 5 wird Hamcrest aus JUnit entfernt, daher muss dies jetzt als Abhängigkeit eingebunden werden.
+In JUnit 4 ist Hamcrest eingebunden, mit JUnit 5 wurde dies entfernt. Aus diesem Grund muss nun diese Abhängigkeit hinzugefügt werden:
+
+```groovy
+testImplementation "org.hamcrest:hamcrest-core:1.3"
+```
+
+Eine Alternative zu Hamcrest ist AssertJ Dazu muss folgende Abhändigkeit hinzugefügt werden:
 
 ```groovy
 testImplementation "org.assertj:assertj-core:3.8.0"
-testImplementation "org.hamcrest:hamcrest-core:1.3"
-
 ```
 
-Wer Hamcrest nicht einbinden möchte, kann einfach AssertJ verwenden.
+Hier sind zwei einfache Beispiele für AssertJ:
 
-Hier noch ein Beispiel für einen einfachen AssertJ Matcher.
 ```java
-Assertions.assertThat(object.getId()).isEqualTo(42);
+assertThat(actual).isEqualTo(expected);
+assertThat(actualDate).isBefore(expectedDate);
 ```
- 
+
+# Aufgabe (beachte die Namen der Tests)
+[HamcrestAssertJTest](../src/test/java/hamcrestAssertJ/HamcrestAssertJTest.java)
+
+1) Hamcrest einbinden
+2) AssertJ verwenden
