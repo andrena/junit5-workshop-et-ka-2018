@@ -1,14 +1,15 @@
 package expectedException;
 
-import library.isbn.ISBN10;
-import library.isbn.InvalidISBNException;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import library.isbn.ISBN10;
+import library.isbn.InvalidISBNException;
 
 public class ExceptionRuleTest {
 
@@ -28,15 +29,25 @@ public class ExceptionRuleTest {
 
 	@Test
 	public void testInvalidISBN() throws InvalidISBNException {
-		exceptionRule.expect(InvalidISBNException.class);
 		assertFalse(underTest.isOfType("3-86680-192-5"));
 	}
 
 	@Test
-	public void testMaleformedISBN() throws InvalidISBNException {
+	public void testMaleformedISBNWithTooManySeparators() throws InvalidISBNException {
 		exceptionRule.expect(InvalidISBNException.class);
 		assertFalse(underTest.isOfType("4-444-44-44-44"));
+	}
+
+
+	@Test
+	public void testMaleformedISBNWithTooFewSeparators() throws InvalidISBNException {
+		exceptionRule.expect(InvalidISBNException.class);
 		assertFalse(underTest.isOfType("4444-444-444"));
+	}
+
+	@Test
+	public void testMaleformedISBNWithoutSeparators() throws InvalidISBNException {
+		exceptionRule.expect(InvalidISBNException.class);
 		assertFalse(underTest.isOfType("3866801920"));
 	}
 
