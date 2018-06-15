@@ -28,6 +28,6 @@ In JUnit5 werden Timeouts direkt in den Assertions überprüft. Das ermöglicht 
 
 1) Schreibe die Tests im `timeout` package so um, dass sie die JUnit 5 Syntax verwenden. 
 
-2) Was ist der Unterschied zwischen der Timeout-Rule und dem Annotation-Parameter ?
+2) Was ist der Unterschied zwischen der Timeout-Rule und dem Annotation-Parameter?
 
-3) Was ist der Unterschied zwischen `asserTimeout()` und `assertTimeoutPreemptivley()`
+3) Was ist der Unterschied zwischen `asserTimeout()` und `assertTimeoutPreemptivley()`?
