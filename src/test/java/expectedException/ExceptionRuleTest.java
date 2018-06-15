@@ -35,6 +35,7 @@ public class ExceptionRuleTest {
 	@Test
 	public void testMaleformedISBNWithTooManySeparators() throws InvalidISBNException {
 		exceptionRule.expect(InvalidISBNException.class);
+        exceptionRule.expectMessage(equalToIgnoringCase("ISBN '4-444-44-44-44' is invalid."));
 		underTest.isOfType("4-444-44-44-44");
 	}
 
@@ -49,6 +50,7 @@ public class ExceptionRuleTest {
 	@Test
 	public void testMaleformedISBNWithoutSeparators() throws InvalidISBNException {
 		exceptionRule.expect(InvalidISBNException.class);
+        exceptionRule.expectMessage(equalToIgnoringCase("ISBN '3866801920' is invalid."));
 		underTest.isOfType("3866801920");
 	}
 
