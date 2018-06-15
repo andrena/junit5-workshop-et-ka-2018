@@ -1,13 +1,13 @@
 package timeout;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
 
+import java.time.Duration;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.Timeout;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import library.Book;
 import library.BookService;
@@ -16,19 +16,18 @@ public class TimeoutRuleTest {
 
 	private BookService service;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws InterruptedException {
 		Thread.sleep(1000);
 		service = new BookService();
 	}
 	
-	@Rule
-	public Timeout timeout = Timeout.seconds(3);
-
 	@Test
 	public void testTimeout() throws InterruptedException {
-		List<Book> all = service.findAll();
-		assertEquals(0, all.size());
+		assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {
+			List<Book> all = service.findAll();
+			assertEquals(0, all.size());
+		});
 	}
 
 }
