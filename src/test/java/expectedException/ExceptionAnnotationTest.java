@@ -1,17 +1,19 @@
 package expectedException;
 
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import library.isbn.ISBNValidator;
 import library.isbn.InvalidISBNException;
-import org.junit.Before;
-import org.junit.Test;
-
-import static org.junit.Assert.assertTrue;
 
 public class ExceptionAnnotationTest {
 
     private ISBNValidator underTest;
 
-    @Before
+	@BeforeEach
     public void setUp() {
         underTest = new ISBNValidator();
     }
@@ -21,14 +23,14 @@ public class ExceptionAnnotationTest {
         assertTrue(underTest.validate("3-86680-192-0"));
     }
 
-    @Test(expected = InvalidISBNException.class)
+	@Test
     public void testInvalidISBN() throws InvalidISBNException {
-        underTest.validate("3-86680-192-5");
+		assertThrows(InvalidISBNException.class, () -> underTest.validate("3-86680-192-5"));
     }
 
-    @Test(expected = InvalidISBNException.class)
+	@Test
     public void testWithAnnotationInvalidISBN() throws InvalidISBNException {
-        underTest.validate("3-86680-192-5");
+		assertThrows(InvalidISBNException.class, () -> underTest.validate("3-86680-192-5"));
     }
 
 
