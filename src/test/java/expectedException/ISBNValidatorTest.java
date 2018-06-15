@@ -21,7 +21,7 @@ public class ISBNValidatorTest {
         assertTrue(underTest.validate("3-86680-192-0"));
     }
 
-    @Test
+    @Test(expected = InvalidISBNException.class)
     public void testInvalidISBN() throws InvalidISBNException {
         underTest.validate("3-86680-192-5");
     }
