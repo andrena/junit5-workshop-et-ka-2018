@@ -1,46 +1,30 @@
 package parameterized;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
 import library.Book;
 import library.CustomerFee;
 import library.RentCalculator;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameter;
 
-import java.util.Arrays;
-import java.util.Collection;
-
-import static org.junit.Assert.assertEquals;
-
-@RunWith(Parameterized.class)
 public class ParameterizedAnnotationTest {
 
-	@Parameter
-	public CustomerFee customer;
-
-	@Parameter(1)
-	public double expectedFee;
-
-	@Parameterized.Parameters(name = " Tagespreis für {0} für 2 Bücher ist {1}")
-    public static Collection<Object[]> parameters() {
-		return Arrays.asList(new Object[][] {
-				{ CustomerFee.STUDENT, 4.4 }, //
-				{ CustomerFee.PENSIONER, 4.4 }, //
-				{ CustomerFee.REGULAR, 5.0 }
-    	});
-    }
-
-	private RentCalculator underTest;
-
-	@Before
-	public void setUp() {
-		underTest = new RentCalculator();
+	public static List<Arguments> parameters() {
+		return Arrays.asList(Arguments.of(CustomerFee.STUDENT, 4.4), Arguments.of(CustomerFee.PENSIONER, 4.4),
+				Arguments.of(CustomerFee.REGULAR, 5.0));
 	}
 
-	@Test
-	public void calculate() {
+	private RentCalculator underTest = new RentCalculator();
+
+	@ParameterizedTest
+	@MethodSource("parameters")
+	public void calculate(CustomerFee customer, double expectedFee) {
 		Book book = new Book("3-234-213-3", "TestBook");
 		double calculateFee = underTest.calculateDailyFee(customer, book, book);
 
