@@ -41,7 +41,6 @@ public class NestedTest {
 
 	@Test
 	public void canRentBook() {
-		// TODO Showcase -> Bücher einfügen vergessen
 		fillLibraryWithBooks();
 		assertTrue(underTest.rentBook(java));
 
@@ -57,7 +56,6 @@ public class NestedTest {
 
 	@Test
 	public void notAllBooksAvailable() {
-		// TODO Showcase -> Falsche Reihenfole
 		fillLibraryWithBooks();
 		rentBookInitially();
 		assertEquals(2, underTest.availableBookCount());
