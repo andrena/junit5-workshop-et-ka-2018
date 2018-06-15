@@ -8,7 +8,7 @@ Des Weiteren wird die geworfene Exception zurückgeliefert, wodurch man angenehm
 
 ```java
 Throwable exception = assertThrows(Exception.class, ()-> functionCall(...));
-assertThat(exception.getMessage).isEqualTo(...);
+assertThat(exception.getMessage()).isEqualTo(...);
 ```
 
 # Aufgabe

@@ -26,7 +26,7 @@ Die Suites Umsetzung von JUnit 5 ist derzeit noch nicht vollständig.
 Der Fortschritt kann unter [JUnit 5 Repository: Issues - Suites](https://github.com/junit-team/junit5/labels/theme%3A%20suites) betrachtet werden.
 
 # Aufgabe
-Das Packet Testsuites enthält zwei Testsuites: BasicTestSuite und LongRunningTests.
+Das Paket Testsuites enthält zwei Testsuites: BasicTestSuite und LongRunningTests.
 
  * Stelle BasicTestSuite auf JUnit 5 um und verwende `@SelectPackages`
  * Stelle LongRunningTests auf JUnit 5 um und verwende `@IncludeTags`
