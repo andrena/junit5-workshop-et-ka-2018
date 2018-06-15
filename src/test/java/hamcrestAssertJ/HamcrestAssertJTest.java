@@ -3,9 +3,10 @@ package hamcrestAssertJ;
 import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-import org.junit.Test;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import library.Book;
 import library.LibraryManager;
@@ -41,7 +42,7 @@ public class HamcrestAssertJTest {
 
 		Book rentBook = underTest.getBook(ISBN);
 
-		assertThat(rentBook, is(book));
+		Assertions.assertThat(rentBook).isEqualTo(book);
 	}
 
 	@Test
@@ -51,7 +52,7 @@ public class HamcrestAssertJTest {
 
 		Book rentBook = underTest.getBook(ISBN);
 
-		assertThat(rentBook.getTitle(), notNullValue());
+		Assertions.assertThat(rentBook.getTitle()).isNotNull();
 	}
 
 }
