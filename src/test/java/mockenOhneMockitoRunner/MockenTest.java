@@ -19,7 +19,7 @@ import library.isbn.InvalidISBNException;
 @RunWith(MockitoJUnitRunner.class)
 public class MockenTest {
 
-	private static final String ISBN = "3-86680-192-0";
+	private static final String ISBN = "3-86680-19";
 
 	@Mock
 	private ISBNValidator isbnValidator;
@@ -28,7 +28,7 @@ public class MockenTest {
 
 	@Before
 	public void setUp() throws InvalidISBNException {
-		underTest = new LibraryManager();
+		underTest = new LibraryManager(isbnValidator);
 		when(isbnValidator.validate(ISBN)).thenReturn(true);
 	}
 
