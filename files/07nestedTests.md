@@ -10,7 +10,7 @@ In JUnit5 ist dieser ``HierarchicalContextRunner`` in die Core-Library aufgenomm
 
 ## Aufgabe
 
-1) Schreibe die Testklasse ``LibraryManagerTest`` neu. Nutze hierzu die ``@Nested``-Annotation. [NestedTests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-nested)
+1) Schreibe die Testklasse ``NestedTest`` neu. Nutze hierzu die ``@Nested``-Annotation. [NestedTests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-nested)
 
 ## Beispiel
 
