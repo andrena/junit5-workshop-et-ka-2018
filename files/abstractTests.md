@@ -3,6 +3,7 @@
 Abstract Test werden dazu genutzt um gleichbleibende Eigenschaften mehrer Klassen zu testen.
 
 In JUnit 5 werden diese Tests als Contracts bezeichnet. Sie bieten die gleiche Funktion wie Abstract Tests. Jedoch nutzen diese die Java 8 default Interface Methoden.
+Im Gegensatz von abstracten Klassen lassen sich mehrere Interfaces an eine Testklasse hängen.  
 
 ```java
     public interface Contract<T> {
