@@ -1,6 +1,6 @@
 # Parametrisierte Tests
 
-In Junit 4 können mit dem ``ParameterizedRunner`` alle Methoden einer Testsklasse für verschiedene Sets an Input-Daten ausgeführt werden.
+In Junit 4 können mit dem ``ParameterizedRunner`` alle Methoden einer Testklasse für verschiedene Sets an Input-Daten ausgeführt werden.
 
 Die Syntax ist teilweise aber doch etwas umständlich.
 
