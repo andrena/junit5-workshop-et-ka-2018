@@ -48,8 +48,8 @@ void stringAreEqual(String candidate, String expected) {
 }
 ```
 
-##Info
-Prüfe ob ``groovy testImplementation("org.junit.jupiter:junit-jupiter-params:1.1.1")`` in der ``build.gradle`` hinterlegt ist.
+## Info
+Prüfe ob ``groovy testImplementation("org.junit.jupiter:junit-jupiter-params:5.1.1")`` in der ``build.gradle`` hinterlegt ist.
 
 ## Aufgabe
 
