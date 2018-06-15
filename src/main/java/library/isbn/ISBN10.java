@@ -10,17 +10,17 @@ public class ISBN10 implements ISBNType {
 	private static final int groupNumberIndex = 0;
 
 	@Override
-	public boolean isOfType(String ISBN) {
-		String[] splittedISBN = ISBN.split("-");
+    public boolean isOfType(String isbn) throws InvalidISBNException {
+        String[] splittedISBN = isbn.split("-");
 		if (splittedISBN.length != 4) {
-			return false;
+            throw new InvalidISBNException(isbn);
 		}
 		ArrayList<Integer> numbers = getAsList(splittedISBN);
 		return (calculateCheckDigit(numbers) == numbers.get(0));
 	}
 
 	private ArrayList<Integer> getAsList(String[] splittedISBN) {
-		ArrayList<Integer> numbers = new ArrayList<Integer>();
+        ArrayList<Integer> numbers = new ArrayList<>();
 		numbers.add(Integer.parseInt(splittedISBN[groupNumberIndex]));
 		numbers.addAll(getAsSingleNumbers(splittedISBN[publisherNumberIndex]));
 		numbers.addAll(getAsSingleNumbers(splittedISBN[titleNumberIndex]));
@@ -37,11 +37,11 @@ public class ISBN10 implements ISBNType {
 	}
 
 	private ArrayList<Integer> getAsSingleNumbers(String numberString) {
-		ArrayList<Integer> numberList = new ArrayList<Integer>();
+        ArrayList<Integer> numberList = new ArrayList<>();
 		char[] numberArray = numberString.toCharArray();
-		for (int i = 0; i < numberArray.length; i++) {
-			numberList.add(Integer.parseInt(String.valueOf(numberArray[i])));
-		}
+        for (char number : numberArray) {
+            numberList.add(Integer.parseInt(String.valueOf(number)));
+        }
 		return numberList;
 	}
 
