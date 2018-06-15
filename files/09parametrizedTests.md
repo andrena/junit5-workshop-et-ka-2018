@@ -48,6 +48,9 @@ void stringAreEqual(String candidate, String expected) {
 }
 ```
 
+##Info
+Prüfe ob ``groovy testImplementation("org.junit.jupiter:junit-jupiter-params:1.1.1")`` in der ``build.gradle`` hinterlegt ist.
+
 ## Aufgabe
 
 1) Schreibe den ``RentCalculatorTest`` so um, dass er die Junit5 Syntax verwendet.
