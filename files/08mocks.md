@@ -51,6 +51,9 @@ public class MockenTest {
 ```
 
 ## Hinweis: 
+* Damit das Benutzen der `@Mock` Annotation funktioniert, muss man nach dem Instanzieren der Testinstanz (z.B. durch implementieren der Extension `TestInstancePostProcessor`) ein `MockitoAnnotations.initMocks(testInstance);` aufrufen.
+* Wenn man wie auf den Folien die Mocks als Parameter in die Testmethode übergeben will, muss man wie in den Extension Übungen den `ParameterResolver` implementieren.
+
 https://github.com/junit-team/junit5-samples/blob/026a9d9abe06b6173398c1a2518793259cd190f2/junit5-mockito-extension/src/main/java/com/example/mockito/MockitoExtension.java
 
 ## Aufgabe
