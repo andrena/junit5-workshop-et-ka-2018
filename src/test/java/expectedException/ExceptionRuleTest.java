@@ -35,20 +35,20 @@ public class ExceptionRuleTest {
 	@Test
 	public void testMaleformedISBNWithTooManySeparators() throws InvalidISBNException {
 		exceptionRule.expect(InvalidISBNException.class);
-		assertFalse(underTest.isOfType("4-444-44-44-44"));
+		underTest.isOfType("4-444-44-44-44");
 	}
 
 
 	@Test
 	public void testMaleformedISBNWithTooFewSeparators() throws InvalidISBNException {
 		exceptionRule.expect(InvalidISBNException.class);
-		assertFalse(underTest.isOfType("4444-444-444"));
+		underTest.isOfType("4444-444-444");
 	}
 
 	@Test
 	public void testMaleformedISBNWithoutSeparators() throws InvalidISBNException {
 		exceptionRule.expect(InvalidISBNException.class);
-		assertFalse(underTest.isOfType("3866801920"));
+		underTest.isOfType("3866801920");
 	}
 
 }
