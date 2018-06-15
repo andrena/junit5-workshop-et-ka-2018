@@ -1,15 +1,15 @@
 package expectedException;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
+import library.isbn.ISBN10;
+import library.isbn.InvalidISBNException;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import library.isbn.ISBN10;
-import library.isbn.InvalidISBNException;
+import static org.hamcrest.Matchers.equalToIgnoringCase;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class ExceptionRuleTest {
 
@@ -42,6 +42,7 @@ public class ExceptionRuleTest {
 	@Test
 	public void testMaleformedISBNWithTooFewSeparators() throws InvalidISBNException {
 		exceptionRule.expect(InvalidISBNException.class);
+		exceptionRule.expectMessage(equalToIgnoringCase("ISBN '4444-444-444' is invalid."));
 		underTest.isOfType("4444-444-444");
 	}
 
