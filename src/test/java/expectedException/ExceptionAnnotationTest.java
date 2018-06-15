@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
-public class ISBNValidatorTest {
+public class ExceptionAnnotationTest {
 
     private ISBNValidator underTest;
 

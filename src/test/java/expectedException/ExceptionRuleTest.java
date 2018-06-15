@@ -10,7 +10,7 @@ import org.junit.rules.ExpectedException;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class ISBN10Test {
+public class ExceptionRuleTest {
 
 	@Rule
 	public ExpectedException exceptionRule = ExpectedException.none();

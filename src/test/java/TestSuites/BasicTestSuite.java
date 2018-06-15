@@ -7,8 +7,8 @@ import abstractTests.BookTest;
 import abstractTests.FunReadingTest;
 import abstractTests.SpeedReadingTest;
 import annotationen.AnnotationTest;
-import expectedException.ISBN10Test;
-import expectedException.ISBNValidatorTest;
+import expectedException.ExceptionRuleTest;
+import expectedException.ExceptionAnnotationTest;
 import hamcrestAssertJ.HamcrestAssertJTest;
 import library.RentCalculatorTest;
 import nested.HierarchicalLibraryTest;
@@ -16,7 +16,7 @@ import temporaryFolder.TemporaryFolderTest;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ BookTest.class, FunReadingTest.class, SpeedReadingTest.class, AnnotationTest.class,
-		ISBN10Test.class, ISBNValidatorTest.class, HamcrestAssertJTest.class, 
+		ExceptionRuleTest.class, ExceptionAnnotationTest.class, HamcrestAssertJTest.class, 
 		RentCalculatorTest.class, HierarchicalLibraryTest.class, TemporaryFolderTest.class })
 public class BasicTestSuite {
 }
