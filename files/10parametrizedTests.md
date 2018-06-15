@@ -1,12 +1,12 @@
 # Parametrisierte Tests
 
-In Junit 4 können mit dem ``ParamterizedRunner`` alle Methoden einer Testsklasse für verschiedene Sets an Input-Daten ausgeführt werden.
+In Junit 4 können mit dem ``ParameterizedRunner`` alle Methoden einer Testsklasse für verschiedene Sets an Input-Daten ausgeführt werden.
 
 Die Syntax ist teilweise aber doch etwas umständlich.
 
 ## Beispiel
 
-```
+```java
 @RunWith(Parameterized.class)
 public class RentCalculatorTest {
 
@@ -29,8 +29,8 @@ public class RentCalculatorTest {
     .....
 ```
 
-In Junit5 werden die Parameter direkt in die jeweilige Testmethode injected. So können auch einzelne Methoden innerhalb einer Testklasse parameterisiert werden.  
-Es gibt verschiedene Annotations um Parameter zu übergeben, z.B. ``@CsvSource``, ``@EnumSource``, ... [Junit5 Parameterized](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests)
+In Junit5 werden die Parameter direkt in die jeweilige Testmethode übergeben. So können auch einzelne Methoden innerhalb einer Testklasse parameterisiert werden.  
+Es gibt verschiedene Annotationen um Parameter zu übergeben, z.B. ``@CsvSource``, ``@EnumSource``, ... [Junit5 Parameterized](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests)
 
 ## Beispiel
 
