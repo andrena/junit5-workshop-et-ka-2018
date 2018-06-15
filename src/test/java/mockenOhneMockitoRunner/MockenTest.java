@@ -5,29 +5,25 @@ import static org.mockito.Mockito.when;
 
 import java.util.Map;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
 
 import library.Book;
 import library.LibraryManager;
 import library.isbn.ISBNValidator;
 import library.isbn.InvalidISBNException;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class MockenTest {
 
 	private static final String ISBN = "3-86680-19";
 
-	@Mock
-	private ISBNValidator isbnValidator;
-
 	private LibraryManager underTest;
 
-	@Before
-	public void setUp() throws InvalidISBNException {
+	@BeforeEach
+	public void setUp(@Mock ISBNValidator isbnValidator) throws InvalidISBNException {
 		underTest = new LibraryManager(isbnValidator);
 		when(isbnValidator.validate(ISBN)).thenReturn(true);
 	}
