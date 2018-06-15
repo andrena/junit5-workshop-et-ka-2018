@@ -1,6 +1,6 @@
 # Annotationen
 
-Die Annotationen von JUnit 4 zu 5 unterscheiden sich leicht, beispielsweise wird `@Before` zu `@BeforeEach`
+Die Annotationen von JUnit 4 und 5 unterscheiden sich leicht, beispielsweise wird `@Before` zu `@BeforeEach`.
 
 Eine Liste Annotationen von kann im 
 [JUnit 5 Userguide](https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations)
