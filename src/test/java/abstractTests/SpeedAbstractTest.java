@@ -5,7 +5,7 @@ import library.activies.reading.Progression;
 import library.activies.reading.ReadingMethod;
 import library.activies.reading.SpeedReading;
 
-public class SpeedAbstractTest extends AbstractMethodTest {
+public class SpeedAbstractTest extends AbstractTest {
 
     @Override
     protected Progression readTest(Book book, int timeUnits) {

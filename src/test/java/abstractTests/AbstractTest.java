@@ -7,7 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNotSame;
 
-public abstract class AbstractMethodTest {
+public abstract class AbstractTest {
 
     protected abstract Progression readTest(Book book, int timeUnits);
 
