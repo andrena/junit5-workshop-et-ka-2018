@@ -15,7 +15,7 @@ import java.util.Collection;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class ParameterizedAnnoationTest {
+public class ParameterizedAnnotationTest {
 
 	@Parameter
 	public CustomerFee customer;

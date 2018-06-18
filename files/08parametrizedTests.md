@@ -53,6 +53,6 @@ Prüfe ob ``groovy testImplementation("org.junit.jupiter:junit-jupiter-params:5.
 
 ## Aufgabe
 
-1) Schreibe den ``RentCalculatorTest`` so um, dass er die Junit5 Syntax verwendet.
+1) Schreibe den ``ParameterizedAnnotationenTest`` so um, dass er die Junit5 Syntax verwendet.
 
-2) Schreibe den ``StorageNumberConverterTest`` so um, dass er eine Csv-Datei einliest und die Werte daraus als Paramter verwendet.
+2) Schreibe den ``ParameterizedFileTest`` so um, dass er eine Csv-Datei einliest und die Werte daraus als Paramter verwendet.

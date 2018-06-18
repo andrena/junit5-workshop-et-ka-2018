@@ -21,12 +21,7 @@ Im Gegensatz von abstrakten Klassen lassen sich mehrere Interfaces an eine Testk
 
 # Aufgabe
 
-In den Dateien
-[ReadingMethodTest](../src/test/java/abstractTests/ReadingMethodTest.java) und 
-[BookPropertiesTest](../src/test/java/abstractTests/BookPropertiesTest.java)
-sind in JUnit 4 verfasste abstrakte Tests.
-
-Diese Test sollen nun von abstrakten Test Klassen in Test Interfaces umgewandelt werden.
+Wandle den Abstrakten JUnit 4 Test [AbstractTest](../src/test/java/abstractTests/AbstractTest.java) in ein Test-Interface um. 
 
 
 # Bsp.: Lösung

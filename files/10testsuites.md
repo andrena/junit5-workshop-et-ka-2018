@@ -15,7 +15,7 @@ Dann können die Suites wie folgt aussehen.
 
 ```java
 @RunWith(JUnitPlatform.class)
-@SelectClasses({RentCalculatorJunit4Test.class})
+@SelectClasses({SomeTestClass.class})
 @SelectPackages({"expectedException"})
 @IncludeTags({"short","long"})
 public class TestSuite{
@@ -29,15 +29,15 @@ Der Fortschritt kann unter [JUnit 5 Repository: Issues - Suites](https://github.
 Das Paket Testsuites enthält zwei Testsuites: BasicTestSuite und LongRunningTests.
 
  * Stelle BasicTestSuite auf JUnit 5 um und verwende `@SelectPackages`
- * Stelle LongRunningTests auf JUnit 5 um und verwende `@IncludeTags`
+ * Stelle TestSuiteOfLongRunningTests auf JUnit 5 um und verwende `@IncludeTags`
 
 # Lösung
 
 ```java
 @RunWith(JUnitPlatform.class)
-@SelectClasses({RentCalculatorJunit4Test.class})
+@SelectClasses({SomeTestClass.class})
 @SelectPackages({"expectedException"})
 @IncludeTags({"short","long"})
-public class RequiresJmqSuite {
+public class TestSuite {
 }
 ```

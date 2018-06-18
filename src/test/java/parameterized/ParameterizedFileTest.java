@@ -13,7 +13,7 @@ import java.util.Collection;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class FileParameterTest {
+public class ParameterizedFileTest {
 
 	@Parameter
 	public int inputValue;
