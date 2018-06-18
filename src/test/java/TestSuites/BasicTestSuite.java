@@ -1,18 +1,14 @@
 package TestSuites;
 
-import abstractTests.FunAbstractTest;
-import abstractTests.SpeedAbstractTest;
-import annotationen.AnnotationTest;
-import expectedException.ExceptionAnnotationTest;
-import expectedException.ExceptionRuleTest;
-import hamcrestAssertJ.HamcrestAssertJTest;
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.platform.suite.api.SelectClasses;
+import org.junit.platform.suite.api.SelectPackages;
 import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
-import temporaryFolder.TemporaryFolderTest;
 
-@RunWith(Suite.class)
-@Suite.SuiteClasses({FunAbstractTest.class, SpeedAbstractTest.class, AnnotationTest.class,
-        ExceptionRuleTest.class, ExceptionAnnotationTest.class, HamcrestAssertJTest.class,
-        TemporaryFolderTest.class})
+import abstractTests.SpeedAbstractTest;
+
+@RunWith(JUnitPlatform.class)
+@SelectClasses({ SpeedAbstractTest.class })
+@SelectPackages({ "expectedException", "customExtension", "mockenOhneMockitoRunner" })
 public class BasicTestSuite {
 }

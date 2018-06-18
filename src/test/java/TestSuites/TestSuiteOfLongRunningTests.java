@@ -1,12 +1,13 @@
 package TestSuites;
 
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.platform.suite.api.IncludeTags;
+import org.junit.platform.suite.api.SelectPackages;
 import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
-import org.junit.runners.Suite.SuiteClasses;
-import temporaryFolder.TemporaryFolderTest;
 
-@RunWith(Suite.class)
-@SuiteClasses({TemporaryFolderTest.class})
+@RunWith(JUnitPlatform.class)
+@SelectPackages({ "nested", "abstractTests" })
+@IncludeTags({ "long" })
 public class TestSuiteOfLongRunningTests {
 
 }

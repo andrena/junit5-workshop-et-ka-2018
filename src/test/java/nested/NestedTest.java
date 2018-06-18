@@ -7,12 +7,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import library.Book;
 import library.BookState;
 import library.LibraryManager;
 
+@Tag("long")
 @DisplayName("A LibraryManager")
 class NestedTest {
 
