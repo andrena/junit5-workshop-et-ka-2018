@@ -1,20 +1,19 @@
 package parameterized;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.Arrays;
-import java.util.Collection;
-
+import library.StorageNumberConverter;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 
-import library.StorageNumberConverter;
+import java.util.Arrays;
+import java.util.Collection;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class StorageNumberConverterTest {
+public class FileParameterTest {
 
 	@Parameter
 	public int inputValue;

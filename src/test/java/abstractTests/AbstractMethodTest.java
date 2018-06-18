@@ -1,13 +1,13 @@
 package abstractTests;
 
-import common.BookFactory;
 import library.Book;
 import library.activies.reading.Progression;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
 
-public abstract class ReadingMethodTest {
+public abstract class AbstractMethodTest {
 
     protected abstract Progression readTest(Book book, int timeUnits);
 
@@ -18,12 +18,12 @@ public abstract class ReadingMethodTest {
 
     @Test
     public void testReadingTransfersKnowledge() {
-        assertNotNull(readTest(BookFactory.getSoftwareDevelopmentBook(), 10).getKnowledge());
+        assertNotSame(readTest(BookFactory.getSoftwareDevelopmentBook(), 10).getKnowledge(), 0.0);
     }
 
     @Test
     public void testReadingIsFun() {
-        assertNotNull(readTest(BookFactory.getBook(), 10).getFun());
+        assertNotSame(readTest(BookFactory.getBook(), 10).getFun(), 0.0);
     }
 
 }

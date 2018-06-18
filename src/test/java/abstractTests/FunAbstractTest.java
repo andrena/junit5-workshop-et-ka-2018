@@ -1,15 +1,15 @@
 package abstractTests;
 
 import library.Book;
+import library.activies.reading.FunReading;
 import library.activies.reading.Progression;
 import library.activies.reading.ReadingMethod;
-import library.activies.reading.SpeedReading;
 
-public class SpeedReadingTest extends ReadingMethodTest {
+public class FunAbstractTest extends AbstractMethodTest {
 
     @Override
     protected Progression readTest(Book book, int timeUnits) {
-        ReadingMethod readingMethod = new SpeedReading(book);
+        ReadingMethod readingMethod = new FunReading(book);
         for (int usedTimeunits = 0; usedTimeunits < timeUnits; usedTimeunits++) {
             readingMethod.read();
         }
