@@ -24,7 +24,7 @@ Da die Software sich noch in einem frühen Entwicklungsstatus befindet, wollen w
 * [Nested Tests](files/07nestedTests.md)
 * [Parametrized Tests](files/08parametrizedTests.md)
 * [Timeouts](files/09timeouts.md)
-* [Test Suites](files/10Testsuites.md)
+* [Test Suites](files/10testsuites.md)
 
 ## Gradle Konfiguration
 Zum Einbinden in JUnit 5 muss die [build.gradle-Datei](build.gradle) angepasst werden.
